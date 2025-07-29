@@ -12,6 +12,7 @@
     }
     header {
         background-color: rgb(251,242,241);
+        width: 100%;
         border-bottom: solid black;
         display: flex;
         flex-direction: row;
