@@ -60,7 +60,7 @@
         background-position: center;
         background-attachment: fixed;
         background-position-y: 30vh;
-        padding: 0 1vw 0 1vw;
+        padding: 0;
         margin:0vw;
         background-color: rgb(255,255,255);
         width: auto;
@@ -72,7 +72,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin-top: 60vh;   /* height of header */
+    margin: 60vh 0vw 0vh 0vw;   /* height of header */
     padding: 0;
     width: 100%;
     box-shadow: 0 .5px 10px black;
