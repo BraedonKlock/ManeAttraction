@@ -66,6 +66,7 @@
         gap: 2vh;
         padding: 5vw 5vh 2.4vw 5vh;
         border-bottom: solid rgb(230,125,129);
+        border-width: .15rem;
     }
     #hamburger-nav a {
         color: black;
