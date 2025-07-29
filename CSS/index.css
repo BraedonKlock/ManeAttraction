@@ -96,13 +96,6 @@
         display: none;
     }
 
-<<<<<<< HEAD:CSS/index.css
-/*FOOTER*/
-footer {
-    background-color: rgb(255,253,248);
-    font-family: Verdana, Tahoma, sans-serif;
-}
-=======
     /*HEADER*/
     img {
         width:100px;
@@ -184,4 +177,3 @@ footer {
         font-family: Verdana, Tahoma, sans-serif;
     }
 }
->>>>>>> 40fab09 (mobile genesis):CSS/Index.css
