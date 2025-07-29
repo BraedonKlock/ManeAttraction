@@ -60,7 +60,7 @@
         position: absolute;
         left: 0;
         flex-direction: column;
-        background: white;
+        background: rgb(251,242,241);
         top: 100%;
         width: 100%;
         gap: 2vh;
