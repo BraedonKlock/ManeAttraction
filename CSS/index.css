@@ -29,7 +29,7 @@
         padding: 0;
     }
 
-    #bookBtn {
+    #book-button {
         border: solid black;
         padding:.3vw;
         font-family: serif;
@@ -48,11 +48,43 @@
         justify-content: center;
     }
     .hamburger {
+        display: block;
         position: absolute;
-        right: 20px;
+        left: 20px;
         font-size: 24px;
         cursor: pointer;
     }
+
+    #hamburger-nav {
+        display: none;
+        position: absolute;
+        left: 0;
+        flex-direction: column;
+        background: white;
+        top: 100%;
+        width: 100%;
+        gap: 2vh;
+        padding: 5vw 5vh 5vw 5vh;
+    }
+    #hamburger-nav a {
+        color: black;
+        font-family: serif;
+        font-size: large;
+
+    }
+    .hamburger-line {
+        width: 75%;
+        color: rgb(230,125,129);
+        margin-left: 0;
+    }
+    #hamburger-last-line {
+        color: rgb(230,125,129);
+    }
+
+    #hamburger-nav.active {
+        display: flex;
+    }
+
     a {
         text-decoration: none;
         color: black;
@@ -97,7 +129,7 @@
     }
 }
 
-/*-------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------*/
 
 /*DESKTOP DISPLAY*/
 @media  (min-width: 1024px) {
@@ -193,7 +225,7 @@
     }
 }
 
-/*-----------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------*/
 /*TABLET VERSION*/
 @media  (min-width: 801px) and (max-width:999px) {
     .desktop{
