@@ -1,3 +1,4 @@
+/*MOBILE DISPLAY*/
 @media  (max-width: 800px) {
     /*Disabling desktop display*/
     .desktop {
@@ -6,16 +7,16 @@
 
     /*HEADER*/
     img {
-        width:100px;
+        width:200px;
         margin: 0vw 0vw 0vw 1vw;
-
+        align-self: center;
     }
     header {
         background-color: rgb(251,242,241);
         border-bottom: solid black;
         display: flex;
-        flex-direction: row;
-        gap: 5vw;
+        flex-direction: column;
+        gap: 0vw;
         margin-top: 0;
         align-items: center;
         position: fixed;
@@ -24,14 +25,13 @@
         padding: 0;
     }
 
-    nav {
-        display: flex;
-        flex-direction: row;
-        gap: 5vw;
-        margin-top: 3vw;
-        margin-left: 48vw;
-        width: 100%;
+    #bookBtn {
+        border: solid black;
+        padding:.3vw;
+        font-family: serif;
+        border-width: .5vw;
     }
+
     a {
         text-decoration: none;
         color: black;
@@ -59,7 +59,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
-        background-position-y: 0vh;
+        background-position-y: 30vh;
         padding: 0 1vw 0 1vw;
         margin:0vw;
         background-color: rgb(255,255,255);
@@ -72,7 +72,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin-top: 30vh;   /* height of header */
+    margin-top: 60vh;   /* height of header */
     padding: 40px 20px;
     width: 100%;
     box-shadow: 0 .5px 10px black;
@@ -87,10 +87,9 @@
     }
 }
 
+/*-------------------------------------------------------------------------------------------------------------------------------------------*/
 
-
-
-/*DESKTOP STYLING*/
+/*DESKTOP DISPLAY*/
 @media  (min-width: 1024px) {
     /*Disabling mobile display*/
     .mobile {
