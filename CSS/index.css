@@ -10,7 +10,7 @@
 
     /*HEADER*/
     img {
-        width:200px;
+        width:300px;
         margin: 0vw 0vw 0vw 1vw;
         align-self: center;
     }
@@ -34,7 +34,8 @@
         padding:.3vw;
         font-family: serif;
         border-width: .5vw;
-        font-size:xx-large;
+        font-size:x-large;
+        background-color: rgb(230,125,129);
     }
 
         nav {
@@ -51,21 +52,8 @@
     a {
         text-decoration: none;
         color: black;
-        font-family: Verdana, Tahoma, sans-serif;
+        font-family: serif;
         font-size: large;
-    }
-    #home:hover {
-        color: grey;
-    }
-
-    #about:hover {
-        color: grey;
-    }
-    #services:hover {
-        color: grey;
-    }
-    #products:hover {
-        color: grey;
     }
 
     /*BODY*/
@@ -75,7 +63,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
-        background-position-y: 30vh;
+        background-position-y: 40vh;
         padding: 0;
         margin:0vw;
         background-color: rgb(251,242,241);
@@ -88,7 +76,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin: 60vh 0vw 0vh 0vw;   /* height of header */
+    margin: 70vh 0vw 0vh 0vw;   /* height of header */
     padding: 0;
     width: 100%;
     box-shadow: 0 .5px 10px black;
