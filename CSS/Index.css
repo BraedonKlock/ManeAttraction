@@ -47,12 +47,12 @@ a {
 
 /*BODY*/
 body {
-    background-image: url('../Photos/Logo2.png');
-    background-size: 30%;
+    background-image: url('../Photos/Studio2.jpeg');
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    background-position-y: 15vh;
+    background-position-y: 0vh;
     padding: 0 1vw 0 1vw;
     margin:0vw;
     background-color: rgb(255,255,255);
@@ -65,7 +65,7 @@ body {
 /*MAIN*/
 main {
   background: rgb(251,242,241);
-  margin-top: 70vh;   /* height of header */
+  margin-top: 90vh;   /* height of header */
   padding: 40px 20px;
   width: 100%;
   box-shadow: 0 .5px 10px black;
