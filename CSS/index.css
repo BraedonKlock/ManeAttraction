@@ -64,7 +64,8 @@
         top: 100%;
         width: 100%;
         gap: 2vh;
-        padding: 5vw 5vh 5vw 5vh;
+        padding: 5vw 5vh 2.4vw 5vh;
+        border-bottom: solid rgb(230,125,129);
     }
     #hamburger-nav a {
         color: black;
@@ -76,9 +77,6 @@
         width: 75%;
         color: rgb(230,125,129);
         margin-left: 0;
-    }
-    #hamburger-last-line {
-        color: rgb(230,125,129);
     }
 
     #hamburger-nav.active {
