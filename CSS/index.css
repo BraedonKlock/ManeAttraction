@@ -1,80 +1,187 @@
-/*HEADER*/
-img {
-    width:100px;
-    margin: 0vw 0vw 0vw 1vw;
+@media  (max-width: 800px) {
+    /*Disabling desktop display*/
+    .desktop {
+        display: none;
+    }
 
-}
-header {
-    background-color: rgb(251,242,241);
-    border-bottom: solid black;
-    display: flex;
-    flex-direction: row;
-    gap: 5vw;
-    margin-top: 0;
-    align-items: center;
-    position: fixed;
-    z-index: 1000;  /* stays above everything */
+    /*HEADER*/
+    img {
+        width:100px;
+        margin: 0vw 0vw 0vw 1vw;
+
+    }
+    header {
+        background-color: rgb(251,242,241);
+        border-bottom: solid black;
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 0;
+        align-items: center;
+        position: fixed;
+        z-index: 1000;  /* stays above everything */
+        width: 100%;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 3vw;
+        margin-left: 48vw;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: large;
+    }
+    #home:hover {
+        color: grey;
+    }
+
+    #about:hover {
+        color: grey;
+    }
+    #services:hover {
+        color: grey;
+    }
+    #products:hover {
+        color: grey;
+    }
+
+    /*BODY*/
+    body {
+        background-image: url('../Photos/Studio2.jpeg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-position-y: 0vh;
+        padding: 0 1vw 0 1vw;
+        margin:0vw;
+        background-color: rgb(255,255,255);
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+
+    /*MAIN*/
+    main {
+    background: rgb(251,242,241);
+    margin-top: 30vh;   /* height of header */
+    padding: 40px 20px;
     width: 100%;
-    padding: 0;
+    box-shadow: 0 .5px 10px black;
+    border-radius: 8px;
+    height: 1000px;
+    }
+
+    /*FOOTER*/
+    footer {
+        background-color: rgb(255,253,248);
+        font-family: Verdana, Tahoma, sans-serif;
+    }
 }
 
-nav {
-    display: flex;
-    flex-direction: row;
-    gap: 5vw;
-    margin-top: 3vw;
-    margin-left: 48vw;
-}
-a {
-    text-decoration: none;
-    color: black;
-    font-family: Verdana, Tahoma, sans-serif;
-    font-size: large;
-}
-#home:hover {
-    color: grey;
-}
 
-#about:hover {
-    color: grey;
-}
-#services:hover {
-    color: grey;
-}
-#products:hover {
-    color: grey;
-}
 
-/*BODY*/
-body {
-    background-image: url('../Photos/Studio2.jpeg');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-position-y: 0vh;
-    padding: 0 1vw 0 1vw;
-    margin:0vw;
-    background-color: rgb(255,255,255);
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
-}
 
-/*MAIN*/
-main {
-  background: rgb(251,242,241);
-  margin-top: 90vh;   /* height of header */
-  padding: 40px 20px;
-  width: 100%;
-  box-shadow: 0 .5px 10px black;
-  border-radius: 8px;
-  height: 1000px;
-}
+/*DESKTOP STYLING*/
+@media  (min-width: 1024px) {
+    /*Disabling mobile display*/
+    .mobile {
+        display: none;
+    }
 
+<<<<<<< HEAD:CSS/index.css
 /*FOOTER*/
 footer {
     background-color: rgb(255,253,248);
     font-family: Verdana, Tahoma, sans-serif;
 }
+=======
+    /*HEADER*/
+    img {
+        width:100px;
+        margin: 0vw 0vw 0vw 1vw;
+
+    }
+    header {
+        background-color: rgb(251,242,241);
+        border-bottom: solid black;
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 0;
+        align-items: center;
+        position: fixed;
+        z-index: 1000;  /* stays above everything */
+        width: 100%;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 3vw;
+        margin-left: 48vw;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-family: Verdana, Tahoma, sans-serif;
+        font-size: large;
+    }
+    #home:hover {
+        color: grey;
+    }
+
+    #about:hover {
+        color: grey;
+    }
+    #services:hover {
+        color: grey;
+    }
+    #products:hover {
+        color: grey;
+    }
+
+    /*BODY*/
+    body {
+        background-image: url('../Photos/Studio2.jpeg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        background-position-y: 0vh;
+        padding: 0 1vw 0 1vw;
+        margin:0vw;
+        background-color: rgb(255,255,255);
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
+
+    /*MAIN*/
+    main {
+    background: rgb(251,242,241);
+    margin-top: 90vh;   /* height of header */
+    padding: 40px 20px;
+    width: 100%;
+    box-shadow: 0 .5px 10px black;
+    border-radius: 8px;
+    height: 1000px;
+    }
+
+    /*FOOTER*/
+    footer {
+        background-color: rgb(255,253,248);
+        font-family: Verdana, Tahoma, sans-serif;
+    }
+}
+>>>>>>> 40fab09 (mobile genesis):CSS/Index.css
