@@ -10,7 +10,7 @@
 
     /*HEADER*/
     img {
-        width:300px;
+        width:150px;
         margin: 0vw 0vw 0vw 1vw;
         align-self: center;
     }
@@ -34,21 +34,25 @@
         padding:.3vw;
         font-family: serif;
         border-width: .5vw;
-        font-size:x-large;
+        font-size: large;
         background-color: rgb(230,125,129);
     }
 
-        nav {
+    nav {
         display: flex;
         flex-direction: row;
         gap: 5vw;
         align-items: center;
         margin: 2vh 0 2vh 0;
-        font-family: serif;
         width: 100%;
         justify-content: center;
     }
-
+    .hamburger {
+        position: absolute;
+        right: 20px;
+        font-size: 24px;
+        cursor: pointer;
+    }
     a {
         text-decoration: none;
         color: black;
@@ -63,7 +67,7 @@
         background-repeat: no-repeat;
         background-position: center;
         background-attachment: fixed;
-        background-position-y: 40vh;
+        background-position-y: 20vh;
         padding: 0;
         margin:0vw;
         background-color: rgb(251,242,241);
@@ -76,7 +80,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin: 70vh 0vw 0vh 0vw;   /* height of header */
+    margin: 50vh 0vw 0vh 0vw;   /* height of header */
     padding: 0;
     width: 100%;
     box-shadow: 0 .5px 10px black;
@@ -135,7 +139,7 @@
     a {
         text-decoration: none;
         color: black;
-        font-family: Verdana, Tahoma, sans-serif;
+        font-family: serif;
         font-size: large;
     }
     #home:hover {
