@@ -9,20 +9,20 @@
     }
 
     /*HEADER*/
+    #image {
+        display: flex;
+        background-color: rgb(251,242,241);
+        justify-content: center;
+        width: 100%;
+    }
     img {
-        width:150px;
-        margin: 0vw 0vw 0vw 1vw;
-        align-self: center;
+        width:200px;
     }
     header {
         background-color: rgb(251,242,241);
         border-bottom: solid black;
         display: flex;
-        flex-direction: column;
-        gap: 0vw;
         margin-top: 0;
-        align-items: center;
-        justify-content: center;
         position: fixed;
         z-index: 1000;  /* stays above everything */
         width: 100%;
@@ -30,6 +30,10 @@
     }
 
     #book-button {
+        display: block;
+        position: absolute;
+        right: 3vw;
+        bottom: 7.5vw;
         border: solid black;
         padding:.3vw;
         font-family: serif;
@@ -40,17 +44,15 @@
 
     nav {
         display: flex;
-        flex-direction: row;
-        gap: 5vw;
-        align-items: center;
-        margin: 2vh 0 2vh 0;
+        margin: 0vh 0 0vh 0;
         width: 100%;
-        justify-content: center;
+        background-color: rgb(251,242,241);
     }
     .hamburger {
         display: block;
         position: absolute;
-        left: 20px;
+        bottom: 0;
+        left: 3vw;
         font-size: 24px;
         cursor: pointer;
     }
@@ -111,7 +113,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin: 50vh 0vw 0vh 0vw;   /* height of header */
+    margin: 46vh 0vw 0vh 0vw;   /* height of header */
     padding: 0;
     width: 100%;
     box-shadow: 0 .5px 10px black;
