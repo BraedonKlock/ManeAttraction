@@ -70,12 +70,14 @@
         border-bottom: solid rgb(230,125,129);
         border-width: .15rem;
     }
+
     #hamburger-nav a {
         color: black;
         font-family: serif;
         font-size: large;
-
+        background-color: rgb(251,242,241);
     }
+
     .hamburger-line {
         width: 75%;
         color: rgb(230,125,129);
@@ -127,6 +129,24 @@
         font-family: Verdana, Tahoma, sans-serif;
         width: 100%;
         margin-top: 1vh;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer p {
+        margin: 2vh 0 0 0;
+    }
+
+    #sm-links {
+        margin: 2vh 0 1vh 0;
+    }
+    #fb-logo {
+        width: 10%;
+        margin-bottom: .6vh;
+    }
+    #inst-logo{
+        width: 8%;
     }
 }
 
