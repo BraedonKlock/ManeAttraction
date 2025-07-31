@@ -48,6 +48,7 @@
         width: 100%;
         background-color: rgb(251,242,241);
     }
+
     .hamburger {
         display: block;
         position: absolute;
@@ -118,7 +119,7 @@
     margin: 46vh 0vw 0vh 0vw;   /* height of header */
     padding: 0;
     width: 100%;
-    box-shadow: 0 .5px 10px black;
+    box-shadow: 0 -8px 12px -4px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     height: 1000px;
     }
@@ -132,6 +133,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+        border-top: solid black;
     }
 
     footer p {
