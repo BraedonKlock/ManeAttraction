@@ -81,7 +81,8 @@
 
     .hamburger-line {
         width: 75%;
-        color: rgb(230,125,129);
+        background-color: rgb(230,125,129);
+        border-color: rgb(230,125,129);
         margin-left: 0;
     }
 
