@@ -1,7 +1,7 @@
     /*This is the font plug-ins*/
     @font-face {
         font-family: 'Imperial Script';
-        src: url('../fonts/Imperial_Script\,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
+        src: url('./Fonts/Imperial_Script\,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
     }
 
     /*Main home welcome header*/
