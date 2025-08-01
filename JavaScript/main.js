@@ -2,7 +2,7 @@ import { homeDisplay } from './home.js';
 import { aboutDisplay } from './about.js';
 import { servicesDisplay } from './services.js';
 import { contactDisplay } from './contact.js';
-
+import { galleryDisplay } from './gallery.js'
 homeDisplay() // displaying home by default
 
   /**event listener for hamburger menu and its options*/
@@ -39,13 +39,16 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (page == "About") {
       aboutDisplay();
     }
-
     else if (page == "Services") {
       servicesDisplay();
-    } else if (page == "Contact") { 
-      contactDisplay();
+    }
+    else if (page == "Gallery") {
+      galleryDisplay();
+    }
+    else if (page == "Contact") { 
+    contactDisplay();
     } else {
-      alert("ERROR");
+    alert("ERROR");
     }
 
     document.getElementById('hamburger-nav').classList.remove('active'); // toggling hamburger menu
