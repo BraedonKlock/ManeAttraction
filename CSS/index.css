@@ -1,5 +1,13 @@
 /*MOBILE DISPLAY*/
 @media  (max-width: 800px) {
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
     /*Disabling desktop display*/
     .desktop {
         display: none;
@@ -27,6 +35,9 @@
         z-index: 1000;  /* stays above everything */
         width: 100%;
         padding: 0;
+        opacity: 1;
+        transform: translateY(20px);
+        animation: fadeInUp 2s ease-out forwards;
     }
 
     #book-button {
@@ -124,6 +135,9 @@
     box-shadow: 0 -8px 12px -4px rgba(0, 0, 0, 0.4);
     border-radius: 8px;
     height: 1000px;
+    opacity: 1;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-out forwards;
     }
 
     /*FOOTER*/

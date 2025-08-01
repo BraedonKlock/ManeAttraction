@@ -1,33 +1,13 @@
-    /*This is the font plug-ins*/
-    @font-face {
-        font-family: 'Imperial Script';
-        src: url('./Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
-    }
+/*This is the font plug-ins*/
+@font-face {
+    font-family: 'Imperial Script';
+    src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
+}
 
-    /*Main home welcome header*/
-    #main-header {
-        font-family: 'Imperial Script';
-        font-weight: none;
-        font-size: 50px;
-        text-align: center;
-        margin: 0;   
-    }
-    #welcome-message {
-        font-family: sans-serif;
-        line-height: 1.7;
-    }
-
-    #home-image {
-        float: left;             
-        margin: 2vh 2vw 2vh .5vw;
-        border-radius: 8rem;
-        width: 35%;
-    }
-
-    .fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s ease-out forwards;
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
 }
 
 @keyframes fadeInUp {
@@ -35,4 +15,24 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/*Main home welcome header*/
+#main-header {
+    font-family: 'Imperial Script';
+    font-weight: none;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;   
+}
+#welcome-message {
+    font-family: sans-serif;
+    line-height: 1.7;
+}
+
+#home-image {
+    float: left;             
+    margin: 2vh 2vw 2vh .5vw;
+    border-radius: 8rem;
+    width: 35%;
 }
