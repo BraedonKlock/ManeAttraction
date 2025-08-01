@@ -3,7 +3,7 @@
     const galleryImages = [];
 
     for (let i = 1; i <= totalImages; i ++) {
-        galleryImages.push(`../Photos/Gallery/gallery${i}.png`);
+        galleryImages.push(`./Photos/Gallery/gallery${i}.png`);
     } 
 
 export function galleryDisplay() {
