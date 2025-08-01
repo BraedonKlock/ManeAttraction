@@ -1,4 +1,6 @@
   export function homeDisplay() {
+    window.scrollTo( 0, 0 );
+
     let main = document.getElementById('main');
 
     let header = document.createElement('p');
