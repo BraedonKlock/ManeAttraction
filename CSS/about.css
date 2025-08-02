@@ -1,0 +1,31 @@
+.about-body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 3vh;
+    padding: 0;
+    margin:0vw;
+    background-color: rgb(251,242,241);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    height: 1000px;
+}
+
+.about-main {
+    background: rgb(251,242,241);
+    margin: 24vh 0vw 0vh 0vw;   /* height of header */
+    padding: 0vh 2vw 0vh 2vw;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 -8px 12px -4px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    opacity: 1;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease-out forwards;
+}
+
+#image {
+    margin-top: 0vh;
+}

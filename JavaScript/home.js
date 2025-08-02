@@ -1,11 +1,15 @@
+import { checkFooterDisplay, checkMainId } from './helper.js';
+
+
   export function homeDisplay() {
+    checkMainId();
+    checkFooterDisplay();
     window.scrollTo( 0, 0 );
 
     let main = document.getElementById('main');
     let body = document.querySelector('body');
-    body.classList.replace('gallery-body', 'body');
+    body.className = "body";
 
-    
 
     let header = document.createElement('p');
     header.id = "main-header"

@@ -51,6 +51,7 @@
         border-width: .5vw;
         font-size: large;
         background-color: rgb(249,213,211);
+        -webkit-tap-highlight-color: transparent; /*this removes the mobile blue box */
     }
 
     nav {
@@ -67,7 +68,9 @@
         left: 3vw;
         font-size: 24px;
         cursor: pointer;
+        -webkit-tap-highlight-color: transparent; /* ✅ removes blue tap highlight */
     }
+
 
     #hamburger-nav {
         display: none;
@@ -157,6 +160,7 @@
 
     #sm-links {
         margin: 2vh 0 1vh 0;
+        -webkit-tap-highlight-color: transparent; /*this removes the mobile blue box */
     }
     #fb-logo {
         width: 10%;
@@ -241,7 +245,7 @@ body {
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin-top: 90vh;   /* height of header */
+    margin-top: 35vh;   /* height of header */
     padding: 40px 20px;
     width: 100%;
     box-shadow: 0 .5px 10px black;

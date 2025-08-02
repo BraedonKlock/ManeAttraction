@@ -3,6 +3,7 @@ import { aboutDisplay } from './about.js';
 import { servicesDisplay } from './services.js';
 import { contactDisplay } from './contact.js';
 import { galleryDisplay } from './gallery.js'
+
 homeDisplay() // displaying home by default
 
   /**event listener for hamburger menu and its options*/
@@ -37,18 +38,18 @@ document.addEventListener('DOMContentLoaded', function () {
       homeDisplay(); // displaying home
     }
     else if (page == "About") {
-      aboutDisplay();
+      aboutDisplay(); // Display about
     }
     else if (page == "Services") {
-      servicesDisplay();
+      servicesDisplay(); // Display services
     }
     else if (page == "Gallery") {
-      galleryDisplay();
+      galleryDisplay(); // Display gallery
     }
     else if (page == "Contact") { 
-    contactDisplay();
+    contactDisplay(); // Display contact
     } else {
-    alert("ERROR");
+    alert("ERROR"); // Alert error if failure
     }
 
     document.getElementById('hamburger-nav').classList.remove('active'); // toggling hamburger menu

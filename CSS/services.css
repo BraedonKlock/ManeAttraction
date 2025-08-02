@@ -1,0 +1,15 @@
+.services-body {
+    background-image: url('../Photos/services.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-position-y: 20vh;
+    padding: 0;
+    margin:0vw;
+    background-color: rgb(251,242,241);
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
