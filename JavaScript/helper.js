@@ -1,3 +1,7 @@
+/**
+ * This file stores helper functions to make code cleaner
+ */
+
 /**This function displays footer if contact page was visited and the footer display was set to none */
 export function checkFooterDisplay() {
     const footer = document.querySelector('footer');

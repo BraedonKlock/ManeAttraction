@@ -1,3 +1,4 @@
+/*-------------------------------------------------------------------------------------------------------------*/
 /*MOBILE DISPLAY*/
 @media  (max-width: 800px) {
 
@@ -171,7 +172,7 @@
     }
 }
 
-/*------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------------------*/
 
 /*DESKTOP DISPLAY*/
 @media  (min-width: 1024px) {
@@ -184,11 +185,6 @@
     }
 
     /*HEADER*/
-    img {
-        width:100px;
-        margin: 0vw 0vw 0vw 1vw;
-
-    }
     header {
         background-color: rgb(251,242,241);
         border-bottom: solid black;
@@ -209,25 +205,6 @@
         gap: 5vw;
         margin-top: 3vw;
         margin-left: 48vw;
-    }
-    a {
-        text-decoration: none;
-        color: black;
-        font-family: serif;
-        font-size: large;
-    }
-    #home:hover {
-        color: grey;
-    }
-
-    #about:hover {
-        color: grey;
-    }
-    #services:hover {
-        color: grey;
-    }
-    #products:hover {
-        color: grey;
     }
 
 /* body (clean, no image) */
@@ -262,7 +239,7 @@ body {
     }
 }
 
-/*---------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------*/
 /*TABLET VERSION*/
 @media  (min-width: 801px) and (max-width:999px) {
     .desktop{
@@ -270,5 +247,59 @@ body {
     }
     .mobile {
         display: none;
+    }
+
+     /*HEADER*/
+    header {
+        background-color: rgb(251,242,241);
+        border-bottom: solid black;
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 0;
+        align-items: center;
+        position: fixed;
+        z-index: 1000;  /* stays above everything */
+        width: 100%;
+        padding: 0;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: row;
+        gap: 5vw;
+        margin-top: 3vw;
+        margin-left: 48vw;
+    }
+
+/* body (clean, no image) */
+body {
+  padding: 0;
+  margin: 0;
+  background-color: white;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+    /*MAIN*/
+    main {
+    background: rgb(251,242,241);
+    margin-top: 35vh;   /* height of header */
+    padding: 40px 20px;
+    width: 100%;
+    box-shadow: 0 .5px 10px black;
+    border-radius: 8px;
+    height: 1000px;
+    }
+
+    /*FOOTER*/
+    footer {
+        background-color: rgb(251,242,241);
+        font-family: serif;
+        width: 100%;
+        margin-top: .1vh;
     }
 }

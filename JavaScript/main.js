@@ -4,6 +4,10 @@ import { servicesDisplay } from './services.js';
 import { contactDisplay } from './contact.js';
 import { galleryDisplay } from './gallery.js'
 
+/**
+ * This file handles the menu and calls the functions corresponding to the menu options 
+ */
+
 homeDisplay() // displaying home by default
 
   /**event listener for hamburger menu and its options*/
