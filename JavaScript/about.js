@@ -1,10 +1,9 @@
-import { checkFooterDisplay, showPreloader, hidePreloader } from './helper.js';
+import { checkFooterDisplay, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
 export function aboutDisplay() {
     showPreloader();
 
 // Give the preloader a moment, then render
-  setTimeout(() => {
     checkFooterDisplay();
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -25,7 +24,7 @@ export function aboutDisplay() {
     p.classList.add("zoom-in")
     p.textContent = "ABOUT: this is the about page, this is where information displayed about kendra will be";
     main.appendChild(p);
-    
-    hidePreloader();
-  },1500);
+    waitForAllImages(() => {
+      hidePreloader();
+    });
 }

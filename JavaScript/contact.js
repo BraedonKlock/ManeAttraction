@@ -1,10 +1,8 @@
-import { checkMainId, showPreloader, hidePreloader } from './helper.js';
+import { checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
 export function contactDisplay() {
   showPreloader();
 
-// Give the preloader a moment, then render
-  setTimeout(() => {
     checkMainId();
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -46,6 +44,7 @@ export function contactDisplay() {
     main.appendChild(contactInfo);
 
     document.querySelector('footer').style.display = 'none';
-    hidePreloader();
-  },1500);
+    waitForAllImages(() => {
+      hidePreloader();
+    });
 }

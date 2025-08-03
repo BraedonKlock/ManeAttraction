@@ -40,3 +40,55 @@ export function hidePreloader() {
     content.style.display = "block";
   }
 }
+
+
+
+
+
+
+
+
+
+export function waitForAllImages(callback) {
+  const imgElements = document.body.querySelectorAll('img');
+  const bgElements = Array.from(document.querySelectorAll('*')).filter(el => {
+    const bg = window.getComputedStyle(el).getPropertyValue('background-image');
+    return bg && bg !== 'none';
+  });
+
+  let total = imgElements.length + bgElements.length;
+  if (total === 0) {
+    callback();
+    return;
+  }
+
+  let loaded = 0;
+
+  const checkDone = () => {
+    loaded++;
+    if (loaded === total) callback();
+  };
+
+  // Handle regular <img> elements
+  imgElements.forEach((img) => {
+    if (img.complete) {
+      checkDone();
+    } else {
+      img.addEventListener('load', checkDone);
+      img.addEventListener('error', checkDone);
+    }
+  });
+
+  // Handle CSS background images
+  bgElements.forEach((el) => {
+    const urlMatch = window.getComputedStyle(el).getPropertyValue('background-image').match(/url\(["']?([^"')]+)["']?\)/);
+    if (urlMatch && urlMatch[1]) {
+      const bgImg = new Image();
+      bgImg.src = urlMatch[1];
+      bgImg.onload = checkDone;
+      bgImg.onerror = checkDone;
+    } else {
+      checkDone(); // If it can't find a URL, count it as done
+    }
+  });
+}

@@ -1,10 +1,8 @@
-import { checkFooterDisplay, checkMainId, hidePreloader, showPreloader } from './helper.js';
+import { checkFooterDisplay, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
 
 export function servicesDisplay() {
   showPreloader();
 
-// Give the preloader a moment, then render
-  setTimeout(() => {
     checkMainId();
     checkFooterDisplay();
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -18,6 +16,7 @@ export function servicesDisplay() {
     let p = document.createElement('p');
     p.textContent = "All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here All SERVICES will be displaye here";
     main.appendChild(p);
-    hidePreloader();
-  },1500);
+    waitForAllImages(() => {
+      hidePreloader();
+    });
 }
