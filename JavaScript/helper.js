@@ -40,15 +40,7 @@ export function hidePreloader() {
     content.style.display = "block";
   }
 }
-
-
-
-
-
-
-
-
-
+/**Loads images before displaying */
 export function waitForAllImages(callback) {
   const imgElements = document.body.querySelectorAll('img');
   const bgElements = Array.from(document.querySelectorAll('*')).filter(el => {
