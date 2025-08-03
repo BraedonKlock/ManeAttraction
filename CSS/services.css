@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Imperial Script';
+    src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
+}
+
 @keyframes grow {
   from { transform: scaleY(0); opacity: 0; }
   to { transform: scaleY(1); opacity: 1; }
@@ -21,4 +26,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;   
+}
+
+.service-container {
+justify-items: center;
+padding-top: 1vh;
+font-family: 'Imperial Script';
+}
+
+.service-container hr {
+    width: 75%;
+    background-color: rgb(230,125,129);
+    border-color: rgb(230,125,129);
 }
