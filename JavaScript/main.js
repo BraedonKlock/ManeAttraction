@@ -12,9 +12,9 @@ homeDisplay() // displaying home by default
 
   /**event listener for hamburger menu and its options*/
 document.addEventListener('DOMContentLoaded', function () {
-  let hamburger = document.getElementById('hamburger');
-  let navMenu = document.getElementById('hamburger-nav');
-  let navLinks = document.querySelectorAll('#hamburger-nav a');
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('hamburger-nav');
+  const navLinks = document.querySelectorAll('#hamburger-nav a');
 
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
@@ -32,9 +32,9 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleNavClick(e) {
     e.preventDefault(); // preventing anchor tag from being executed
 
-    let page = this.textContent.trim(); //assigning the clicked link to page and triming it
+    const page = this.textContent.trim(); //assigning the clicked link to page and triming it
 
-    let main = document.getElementById('main'); // getting main to apply content of menu option selected
+    const main = document.getElementById('main'); // getting main to apply content of menu option selected
 
     main.innerHTML = ''; // clearing main before applying content
 

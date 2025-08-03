@@ -6,15 +6,15 @@ export function contactDisplay() {
   checkMainId();
   window.scrollTo({ top: 0, behavior: "smooth" });
 
-  let body = document.querySelector('body');
+  const body = document.querySelector('body');
   body.className = "contact-body";
 
-  let main = document.getElementById('main');
+  const main = document.getElementById('main');
   main.classList.remove("grow");
   main.classList.add("fade");
   main.innerHTML = "";
 
-  let contactInfo = document.createElement('div');
+  const contactInfo = document.createElement('div');
   contactInfo.innerHTML = `
       <div id="contact-us" class="fade">
           <p>Kendra Roney</p>

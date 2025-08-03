@@ -16,17 +16,17 @@ export function galleryDisplay() {
   checkFooterDisplay();
   window.scrollTo({top: 0, behavior:"smooth"});
 
-  let main = document.getElementById('main');
+  const main = document.getElementById('main');
   main.classList.remove("grow","fade");
   main.innerHTML = "";
-  let body = document.querySelector('body');
+  const body = document.querySelector('body');
   body.className = "gallery-body";
 
-  let div = document.createElement("div");
+  const div = document.createElement("div");
   div.id = "gallery-container";
   div.classList.add("fade-in");
 
-  let header = document.createElement("p");
+  const header = document.createElement("p");
   header.id = "gallery-header";
 
   header.textContent = "Gallery";
@@ -43,30 +43,30 @@ export function galleryDisplay() {
   }
 
   /**This is the "See more below text" */
-  let seeMore = document.createElement("p");
+  const seeMore = document.createElement("p");
   seeMore.id = "gallery-see-more"
   seeMore.textContent = "See more photos at:";
   div.appendChild(seeMore);
 
   /**This is the container for the links to more photos */
-  let linkDiv = document.createElement("div");
+  const linkDiv = document.createElement("div");
   linkDiv.id = "gallery-links";
   div.appendChild(linkDiv);
   
   /**This is the facebook image and link */
-  let fbAnchor = document.createElement("a");
+  const fbAnchor = document.createElement("a");
   fbAnchor.href = "https://www.facebook.com/share/1CKPXq4F6a/";
   linkDiv.appendChild(fbAnchor);
-  let fbImage = document.createElement("img");
+  const fbImage = document.createElement("img");
   fbImage.id = "gallery-fb";
   fbImage.src = "./Photos/fbLogo.jpg";
   fbAnchor.appendChild(fbImage);
 
   /**This is the instagram image and link */
-  let instAnchor = document.createElement("a");
+  const instAnchor = document.createElement("a");
   instAnchor.href = "https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211";
   linkDiv.appendChild(instAnchor);
-  let instImage = document.createElement("img");
+  const instImage = document.createElement("img");
   instImage.id = "gallery-inst";
   instImage.src = "./Photos/InstagramLogo.png";
   instAnchor.appendChild(instImage);

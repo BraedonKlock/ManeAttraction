@@ -49,12 +49,12 @@ export function servicesDisplay() {
   checkMainId();
   checkFooterDisplay();
   window.scrollTo({ top: 0, behavior: "smooth" });
-  let main = document.getElementById('main');
+  const main = document.getElementById('main');
   main.classList.add("grow");
   main.classList.remove("fade");
   main.innerHTML = "";
   
-  let body = document.querySelector('body');
+  const body = document.querySelector('body');
   body.className = "services-body";
 
   /**printing service objects */
