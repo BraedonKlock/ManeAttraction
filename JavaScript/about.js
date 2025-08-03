@@ -13,10 +13,12 @@
 
     let image = document.createElement("img");
     image.id = "image";
+    image.classList.add("zoom-in");
     image.src = "./Photos/kendra2.jpeg";
     main.appendChild(image);
 
     let p = document.createElement('p');
+    p.classList.add("zoom-in")
     p.textContent = "ABOUT: this is the about page, this is where informationdisplayed about kendra will be";
     main.appendChild(p);
 

@@ -8,11 +8,12 @@ export function contactDisplay() {
   body.className = "contact-body";
 
   let main = document.getElementById('main');
+  main.classList.add("fade");
   main.innerHTML = "";
 
 let contactInfo = document.createElement('div');
 contactInfo.innerHTML = `
-    <div id="contact-us">
+    <div id="contact-us" class="fade">
         <p>Kendra Roney</p>
         <p>613-326-1649</p>
         <p>ManeAttractionHairDesign@gmail.com</p>
@@ -32,7 +33,7 @@ contactInfo.innerHTML = `
       allowfullscreen="" loading="lazy">
     </iframe>
 
-    <p style="text-align: center; font-weight:bold; margin-top: 2vh">10 Maple Avenue, Unit 6<br>
+    <p class="fade" style="text-align: center; font-weight:bold; margin-top: 2vh">10 Maple Avenue, Unit 6<br>
     Smiths Falls</p>
   </section>
 `;

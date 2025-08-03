@@ -1,3 +1,12 @@
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.zoom-in {
+  animation: zoomIn 1s ease-out forwards;
+}
+
+
 .about-body {
     background-size: 100%;
     background-repeat: no-repeat;

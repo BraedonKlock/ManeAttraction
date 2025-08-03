@@ -1,3 +1,14 @@
+.fade {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
 .contact-body {
     background-image: url('../Photos/studio4.jpeg');
     background-size: 100%;

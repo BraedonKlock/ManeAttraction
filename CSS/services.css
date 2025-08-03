@@ -1,3 +1,12 @@
+@keyframes grow {
+  from { transform: scaleY(0); opacity: 0; }
+  to { transform: scaleY(1); opacity: 1; }
+}
+.grow {
+  transform-origin: top;
+  animation: grow 1.2s ease-out forwards;
+}
+
 .services-body {
     background-image: url('../Photos/services.jpeg');
     background-size: 100%;
