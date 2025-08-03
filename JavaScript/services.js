@@ -1,13 +1,23 @@
 import { checkFooterDisplay, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
 
 /**This is a service object */
-function service(name, description, price) {
-  return {
-    name:name,
-    description: description,
-    price: price
-  };
+class Service {
+  constructor(name, description, price) {
+    this.name = name;
+    this.description = description;
+    this.price = price;
+  }
 }
+
+/**creating array of Service objects */
+const MAX_SERVICES = 3;
+const servicesList = new Array(MAX_SERVICES);
+
+
+/**services property values assigned */
+servicesList[0] = new Service("Men's Cut", "Basic Men's hair cut", "$44.99");
+servicesList[1] = new Service("Women's Hair Cut", "Basic Women's Hair cut", "$49.99");
+servicesList[2] = new Service("Women's Color", "Women's Color", "$89.99");
 
 /**This is a function to display a service */
 function createService(service) {
@@ -32,7 +42,7 @@ function createService(service) {
   return container;
 }
 
-
+/**This function displays the services to main */
 export function servicesDisplay() {
   showPreloader();
 
@@ -47,18 +57,11 @@ export function servicesDisplay() {
   let body = document.querySelector('body');
   body.className = "services-body";
 
-  const mensHairCut = service("Men's Cut", "Basic Men's hair cut", "$44.99");
-  const service1 = createService(mensHairCut);
-
-  const womensHairCut = service("Women's Hair Cut", "Basic Women's Hair cut", "$49.99");
-  const service2 = createService(womensHairCut);
-
-  const womensColor = service("Women's Color", "Women's Color", "$89.99");
-  const service3 = createService(womensColor);
-
-  main.appendChild(service1);
-  main.appendChild(service2);
-  main.appendChild(service3);
+  /**printing service objects */
+  for (let i = 0; i < servicesList.length; i ++) {
+    const service = createService(servicesList[i]);
+    main.appendChild(service);
+  }
   
   waitForAllImages(() => {
     hidePreloader();
