@@ -27,5 +27,5 @@ export function aboutDisplay() {
     main.appendChild(p);
     
     hidePreloader();
-  },500);
+  },1500);
 }

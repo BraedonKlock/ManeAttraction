@@ -75,7 +75,7 @@ export function galleryDisplay() {
 
     GalleryScrollEffect();
     hidePreloader();
-  },500);
+  },1500);
 }
 
 /**This function sets a scroll effect to every image */

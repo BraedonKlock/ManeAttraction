@@ -35,5 +35,5 @@ export function homeDisplay() {
     main.appendChild(welcomeMess);
     
     hidePreloader();
-  },0);
+  },1500);
 }

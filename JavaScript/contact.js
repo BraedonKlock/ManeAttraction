@@ -47,5 +47,5 @@ export function contactDisplay() {
 
     document.querySelector('footer').style.display = 'none';
     hidePreloader();
-  },500);
+  },1500);
 }
