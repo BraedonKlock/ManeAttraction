@@ -34,6 +34,9 @@
     transform: translateY(20px);
     animation: fadeInUp 2s ease-out forwards;
 }
+.about-main p {
+  margin: 2vh 0vw 2vh 0vw;
+}
 
 #image {
     margin-top: 0vh;

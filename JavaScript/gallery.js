@@ -1,4 +1,4 @@
-import { checkFooterDisplay, checkMainId } from './helper.js';
+import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader } from './helper.js';
 
 /**Creating an array of images to loop through and and create elements to display the images. This reduces code*/
 const totalImages = 7;
@@ -10,11 +10,16 @@ for (let i = 1; i <= totalImages; i ++) {
 } 
 
 export function galleryDisplay() {
+  showPreloader();
+
+// Give the preloader a moment, then render
+  setTimeout(() => {
     checkMainId();
     checkFooterDisplay();
     window.scrollTo({top: 0, behavior:"smooth"});
 
     let main = document.getElementById('main');
+    main.classList.remove("grow");
     main.innerHTML = "";
     let body = document.querySelector('body');
     body.className = "gallery-body";
@@ -69,6 +74,8 @@ export function galleryDisplay() {
     instAnchor.appendChild(instImage);
 
     GalleryScrollEffect();
+    hidePreloader();
+  },500);
 }
 
 /**This function sets a scroll effect to every image */

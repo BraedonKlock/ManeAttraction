@@ -19,3 +19,24 @@ export function checkMainId() {
         main.classList.remove("about-main");
     }
 }
+
+/**Pre-loader helper function to improve smoothness of website loading*/
+export function showPreloader() {
+  const preloader = document.getElementById("preloader");
+  const content = document.getElementById("site-content");
+
+  if (preloader && content) {
+    preloader.style.display = "flex";
+    content.style.display = "none";
+  }
+}
+
+export function hidePreloader() {
+  const preloader = document.getElementById("preloader");
+  const content = document.getElementById("site-content");
+
+  if (preloader && content) {
+    preloader.style.display = "none";
+    content.style.display = "block";
+  }
+}

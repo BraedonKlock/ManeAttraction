@@ -1,6 +1,10 @@
-  import { checkFooterDisplay } from './helper.js';
+import { checkFooterDisplay, showPreloader, hidePreloader } from './helper.js';
 
-  export function aboutDisplay() {
+export function aboutDisplay() {
+    showPreloader();
+
+// Give the preloader a moment, then render
+  setTimeout(() => {
     checkFooterDisplay();
     window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -9,7 +13,7 @@
 
     let main = document.getElementById('main');
     main.classList.add("about-main"); // Adds styling for the about page
-
+    main.classList.remove("grow");
 
     let image = document.createElement("img");
     image.id = "image";
@@ -19,7 +23,9 @@
 
     let p = document.createElement('p');
     p.classList.add("zoom-in")
-    p.textContent = "ABOUT: this is the about page, this is where informationdisplayed about kendra will be";
+    p.textContent = "ABOUT: this is the about page, this is where information displayed about kendra will be";
     main.appendChild(p);
-
-  }
+    
+    hidePreloader();
+  },500);
+}
