@@ -24,7 +24,7 @@
 
 .about-main {
     background: rgb(251,242,241);
-    margin: 24vh 0vw 0vh 0vw;   /* height of header */
+    margin: 24vh 0vw 4vh 0vw;   /* height of header */
     padding: 0vh 2vw 0vh 2vw;
     width: 100%;
     box-sizing: border-box;
