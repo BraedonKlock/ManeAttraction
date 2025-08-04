@@ -27,6 +27,19 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+/**Event listener that collapses hamburger menu when the use clicks outside the menu */
+document.addEventListener('click', function (event) {
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('hamburger-nav');
+
+  const clickedInsideHamburger = hamburger.contains(event.target);
+  const clickedInsideMenu = navMenu.contains(event.target);
+
+  // If clicked outside both hamburger and menu
+  if (!clickedInsideHamburger && !clickedInsideMenu) {
+    navMenu.classList.remove('active');
+  }
+});
 
   /* This function handles the actions of the hamburger menu options */
   function handleNavClick(e) {
