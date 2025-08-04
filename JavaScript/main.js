@@ -41,6 +41,14 @@ document.addEventListener('click', function (event) {
   }
 });
 
+/**Event listener that collapses hamburger menu if the user scrolls */
+window.addEventListener('scroll', function () {
+  const navMenu = document.getElementById('hamburger-nav');
+  if (navMenu.classList.contains('active')) {
+    navMenu.classList.remove('active');
+  }
+});
+
   /* This function handles the actions of the hamburger menu options */
   function handleNavClick(e) {
     e.preventDefault(); // preventing anchor tag from being executed
