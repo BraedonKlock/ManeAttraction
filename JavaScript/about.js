@@ -1,7 +1,8 @@
-import { checkFooterDisplay, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
 export function aboutDisplay() {
   showPreloader(); // preloader to load page content before displaying for smooth user experience
+  removeBridal();
   checkFooterDisplay(); // displaying footer if not applied. footer was removed in contact.js
 
   /**Getting the body element and adding new styling to it */
@@ -11,7 +12,7 @@ export function aboutDisplay() {
   /**Getting main to add about page content */
   const main = document.getElementById('main');
   main.classList.add("about-main"); // Adds styling for the about page
-  main.classList.remove("grow","fade");
+  main.classList.remove("grow","fade","blur-in");
 
   /**Adding image of kendra to main*/
   const image = document.createElement("img");

@@ -1,6 +1,7 @@
 import { homeDisplay } from './home.js';
 import { aboutDisplay } from './about.js';
 import { servicesDisplay } from './services.js';
+import { bridalDisplay } from './bridal.js';
 import { contactDisplay } from './contact.js';
 import { galleryDisplay } from './gallery.js'
 
@@ -16,6 +17,7 @@ window.addEventListener('load', () => {
 
   if (lastPage === "About") aboutDisplay();
   else if (lastPage === "Services") servicesDisplay();
+  else if (lastPage === "Bridal") bridalDisplay();
   else if (lastPage === "Gallery") galleryDisplay();
   else if (lastPage === "Contact") contactDisplay();
   else homeDisplay(); // Default to home if nothing is stored
@@ -75,6 +77,7 @@ function handleNavClick(e) {
   if (page === "Home") homeDisplay();
   else if (page === "About") aboutDisplay();
   else if (page === "Services") servicesDisplay();
+  else if (page === "Bridal") bridalDisplay();
   else if (page === "Gallery") galleryDisplay();
   else if (page === "Contact") contactDisplay();
   else alert("ERROR");

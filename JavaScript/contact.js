@@ -1,14 +1,15 @@
-import { checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { checkMainId, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
 export function contactDisplay() {
   showPreloader();
+  removeBridal();
   checkMainId();
 
   const body = document.querySelector('body');
   body.className = "contact-body";
 
   const main = document.getElementById('main');
-  main.classList.remove("grow");
+  main.classList.remove("grow","zoom-in","blur-in");
   main.classList.add("fade");
   main.innerHTML = "";
 

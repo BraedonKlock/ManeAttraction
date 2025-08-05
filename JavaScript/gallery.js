@@ -1,4 +1,4 @@
-import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader,waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader,waitForAllImages } from './helper.js';
 
 /**Creating an array of images to loop through and and create elements to display the images. This reduces code*/
 const totalImages = 7;
@@ -11,12 +11,12 @@ for (let i = 1; i <= totalImages; i ++) {
 
 export function galleryDisplay() {
   showPreloader();
-
+  removeBridal();
   checkMainId();
   checkFooterDisplay();
 
   const main = document.getElementById('main');
-  main.classList.remove("grow","fade");
+  main.classList.remove("grow","fade","zoom-in","blur-in");
   main.innerHTML = "";
   const body = document.querySelector('body');
   body.className = "gallery-body";

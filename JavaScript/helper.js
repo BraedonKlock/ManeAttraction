@@ -11,12 +11,19 @@ export function checkFooterDisplay() {
     }
 }
 
-/**This function displays footer if contact page was visited and the footer display was set to none */
 export function checkMainId() {
     const main = document.getElementById('main');
 
     if (main.classList.contains('about-main')) {
         main.classList.remove("about-main");
+    }
+}
+
+export function removeBridal() {
+    const main = document.getElementById('main');
+
+    if (main.classList.contains('bridal-main')) {
+        main.classList.remove("bridal-main");
     }
 }
 

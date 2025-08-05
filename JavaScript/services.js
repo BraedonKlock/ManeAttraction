@@ -1,4 +1,4 @@
-import { checkFooterDisplay, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
 
 /**This is a service object */
 class Service {
@@ -46,11 +46,12 @@ function createService(service) {
 export function servicesDisplay() {
   showPreloader();
 
+  removeBridal();
   checkMainId();
   checkFooterDisplay();
   const main = document.getElementById('main');
   main.classList.add("grow");
-  main.classList.remove("fade");
+  main.classList.remove("fade","zoom-in","blur-in");
   main.innerHTML = "";
   
   const body = document.querySelector('body');
