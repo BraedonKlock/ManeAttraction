@@ -4,10 +4,6 @@
     src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
 }
 
-@keyframes zoomIn {
-  from { transform: scale(0.8); opacity: 0; }
-  to   { transform: scale(1); opacity: 1; }
-}
 
 .blur-in {
   filter: blur(3px);
@@ -21,7 +17,6 @@
     opacity: 1;
   }
 }
-
 
 .bridal-body {
     background-size: 100%;
