@@ -75,12 +75,12 @@
         display: block;
         position: absolute;
         right: 3vw;
-        bottom: 7.5vw;
-        border: solid black;
-        padding:.3vw;
+        bottom: 6.5vw;
+        border-radius: .375rem;
+        padding: .5rem;
         font-family: serif;
-        border-width: .5vw;
-        font-size: large;
+        font-size: small;
+        font-weight: bold;
         background-color: rgb(249,213,211);
         -webkit-tap-highlight-color: transparent; /*this removes the mobile blue box */
     }
