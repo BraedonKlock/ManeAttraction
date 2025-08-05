@@ -52,6 +52,10 @@
   line-height: 1.7;
 }
 
+h2 {
+  font-family: 'Imperial Script';
+}
+
 #image {
     margin-top: 0vh;
 }
