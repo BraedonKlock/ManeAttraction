@@ -12,10 +12,39 @@ export function contactDisplay() {
   main.classList.add("fade");
   main.innerHTML = "";
 
+  /**Creating a div container to hold business hours */
+  const businessContainer = document.createElement("div");
+  businessContainer.id = "business-container";
+  main.appendChild(businessContainer);
+
+  const contacth2 = document.createElement("h2"); // header that holds the text "Business Hours"
+  contacth2.id = "contact-h2";
+  contacth2.textContent = "Business Hours";
+  businessContainer.appendChild(contacth2);
+
+  const hoursDiv = document.createElement("div"); // a container to hold the buisiness hours so that i can apply style
+  hoursDiv.id = "hours-div";
+  businessContainer.appendChild(hoursDiv);
+
+  const days = document.createElement("p"); // element holds days
+  days.id = "days";
+  days.innerHTML = `Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday`;
+  hoursDiv.appendChild(days);
+
+  const hours = document.createElement("p"); // element holds hours
+  hours.id = "hours";
+  hours.innerHTML = `CLOSED<br>CLOSED<br>10:00am - 3:00pm<br>10:00am - 8:00pm<br>10:00am - 8:30pm<br>10:00am - 3:00pm<br>&nbsp;&nbsp;8:00am - 5:00pm<br>`;
+  hoursDiv.appendChild(hours);
+
+  const contacthr = document.createElement("hr");
+  contacthr.id="contact-hr";
+  businessContainer.appendChild(contacthr);
+
+  /**Creating a div container to hold contact info */
   const contactInfo = document.createElement('div');
   contactInfo.innerHTML = `
       <div id="contact-us" class="fade">
-          <p>Kendra Roney</p>
+          <p><strong>Kendra Roney</strong></p>
           <p>613-326-1649</p>
           <p>ManeAttractionHairDesign@gmail.com</p>
       <p style="font-weight: bold">Connect with us:</p>
