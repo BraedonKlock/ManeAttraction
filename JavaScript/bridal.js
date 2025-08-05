@@ -22,6 +22,7 @@ export function bridalDisplay() {
   main.appendChild(bridalImage);
   const bridalp = document.createElement("p");
   bridalp.id= "bridal-p";
+  bridalp.classList.add("blur-in");
   bridalp.innerHTML =`You've imagined this day a thousand times — and Kendra is here to make sure every detail feels just right.<br><br>Kendra understands how much care, emotion, and planning goes into a wedding, and she brings that same level of dedication to every bridal appointment. Her goal is simple: to make sure the bride’s hair is absolutely perfect — styled to last, flawless in photos, and true to her vision.<br><br>From elegant updos to soft, romantic waves, Kendra works closely with each bride to ensure the hairstyle enhances her features, complements the dress, and reflects her personality. She also offers styling for the entire bridal party, making sure everyone looks and feels their best.<br><br>Your wedding day is one of the most important days of your life — and Kendra is here to help you feel beautiful every step of the way.`;
   main.appendChild(bridalp);
 
