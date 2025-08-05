@@ -1,4 +1,5 @@
 import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { bridalDisplay } from './bridal.js'
 
 
 export function homeDisplay() {
@@ -9,6 +10,7 @@ export function homeDisplay() {
 
   const main = document.getElementById('main');
   main.classList.remove("grow", "fade","zoom-in", "blur-in");
+  main.innerHTML = "";
   const body = document.querySelector('body');
   body.className = "body";
 
@@ -48,6 +50,13 @@ export function homeDisplay() {
   bridalp.id= "bridal-p";
   bridalp.innerHTML = `With over a decade of experience in bridal hairstyling, Kendra knows that a bride’s hair isn’t just part of the look — it’s a central piece of the day. From the moment she arrives to the last dance, the bride deserves to feel confident, radiant, and unforgettable.`;
   bridalSection.appendChild(bridalp);
+
+  /**Learn more button */
+  const button = document.createElement("button");
+  button.textContent = "Learn More";
+  button.id = "learn-more-btn";
+  button.addEventListener("click", bridalDisplay);
+  bridalSection.appendChild(button);
 
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" });

@@ -42,7 +42,7 @@
     border-color: black;
 }
 #bridal-section {
-
+    text-align: center;
 }
 #bridal-h1 {
     font-family:'Imperial Script';
@@ -55,4 +55,14 @@
     margin: 0 0 5vh 0;
     line-height: 1.7;
     font-family: sans-serif;
+}
+
+#learn-more-btn {
+    display: inline-block;
+  padding: .625rem 1.25rem;
+  background-color: rgb(230,125,129);
+  color: white;
+  border: none;
+  border-radius: .375rem;
+  font-weight: bold;
 }

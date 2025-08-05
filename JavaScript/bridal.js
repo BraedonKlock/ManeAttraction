@@ -11,6 +11,7 @@ export function bridalDisplay() {
   const main = document.getElementById('main');
   main.classList.add("bridal-main");
   main.classList.remove("grow", "fade", "zoom-in");
+  main.innerHTML = "";
 
   // Image array
   const images = [

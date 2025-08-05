@@ -13,6 +13,7 @@ export function aboutDisplay() {
   const main = document.getElementById('main');
   main.classList.add("about-main"); // Adds styling for the about page
   main.classList.remove("grow","fade","blur-in");
+  main.innerHTML = "";
 
   /**Adding image of kendra to main*/
   const image = document.createElement("img");
