@@ -2,9 +2,7 @@ import { checkMainId, showPreloader, hidePreloader, waitForAllImages } from './h
 
 export function contactDisplay() {
   showPreloader();
-
   checkMainId();
-  window.scrollTo({ top: 0, behavior: "smooth" });
 
   const body = document.querySelector('body');
   body.className = "contact-body";
@@ -45,6 +43,7 @@ export function contactDisplay() {
 
   document.querySelector('footer').style.display = 'none';
   waitForAllImages(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();
   });
 }

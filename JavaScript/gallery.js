@@ -14,7 +14,6 @@ export function galleryDisplay() {
 
   checkMainId();
   checkFooterDisplay();
-  window.scrollTo({top: 0, behavior:"smooth"});
 
   const main = document.getElementById('main');
   main.classList.remove("grow","fade");
@@ -73,6 +72,7 @@ export function galleryDisplay() {
 
   GalleryScrollEffect();
   waitForAllImages(() => {
+    window.scrollTo({top: 0, behavior:"auto"});
     hidePreloader();
   });
 }

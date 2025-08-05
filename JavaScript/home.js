@@ -4,10 +4,8 @@ import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader, waitForA
 export function homeDisplay() {
   showPreloader();
 
-
   checkMainId();
   checkFooterDisplay();
-  window.scrollTo( 0, 0 );
 
   const main = document.getElementById('main');
   main.classList.remove("grow", "fade");
@@ -52,6 +50,7 @@ export function homeDisplay() {
   bridalSection.appendChild(bridalp);
 
   waitForAllImages(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();
   });
 }

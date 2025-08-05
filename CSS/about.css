@@ -1,3 +1,9 @@
+/*This is the font plug-ins*/
+@font-face {
+    font-family: 'Imperial Script';
+    src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
+}
+
 @keyframes zoomIn {
   from { transform: scale(0.8); opacity: 0; }
   to   { transform: scale(1); opacity: 1; }
@@ -34,8 +40,16 @@
     transform: translateY(20px);
     animation: fadeInUp 2s ease-out forwards;
 }
+#about-h1 {
+  font-family: 'Imperial Script';
+  justify-self: center;
+  margin: 4vh 0vw 0vh 0vw;
+
+}
 .about-main p {
   margin: 2vh 0vw 2vh 0vw;
+  font-family: sans-serif;
+  line-height: 1.7;
 }
 
 #image {

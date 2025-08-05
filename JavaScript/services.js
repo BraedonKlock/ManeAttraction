@@ -48,7 +48,6 @@ export function servicesDisplay() {
 
   checkMainId();
   checkFooterDisplay();
-  window.scrollTo({ top: 0, behavior: "smooth" });
   const main = document.getElementById('main');
   main.classList.add("grow");
   main.classList.remove("fade");
@@ -64,6 +63,7 @@ export function servicesDisplay() {
   }
   
   waitForAllImages(() => {
+    window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();
   });
 }

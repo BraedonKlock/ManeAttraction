@@ -8,7 +8,20 @@ import { galleryDisplay } from './gallery.js'
  * This file handles the menu and calls the functions corresponding to the menu options 
  */
 
-homeDisplay() // displaying home by default
+/**Event listener for page refresh, it forces a scroll to the top */
+window.addEventListener('load', () => {
+  window.scrollTo({ top: 0, behavior: "auto" });
+
+  const lastPage = localStorage.getItem('lastPage');
+
+  if (lastPage === "About") aboutDisplay();
+  else if (lastPage === "Services") servicesDisplay();
+  else if (lastPage === "Gallery") galleryDisplay();
+  else if (lastPage === "Contact") contactDisplay();
+  else homeDisplay(); // Default to home if nothing is stored
+});
+
+
 
   /**event listener for hamburger menu and its options*/
 document.addEventListener('DOMContentLoaded', function () {
@@ -49,35 +62,25 @@ window.addEventListener('scroll', function () {
   }
 });
 
-  /* This function handles the actions of the hamburger menu options */
-  function handleNavClick(e) {
-    e.preventDefault(); // preventing anchor tag from being executed
+/**This function runs functions correlated with selected menu option selected */
+function handleNavClick(e) {
+  e.preventDefault();
 
-    const page = this.textContent.trim(); //assigning the clicked link to page and triming it
+  const page = this.textContent.trim();
+  localStorage.setItem('lastPage', page); // Save the selected page
 
-    const main = document.getElementById('main'); // getting main to apply content of menu option selected
+  const main = document.getElementById('main');
+  main.innerHTML = '';
 
-    main.innerHTML = ''; // clearing main before applying content
+  if (page === "Home") homeDisplay();
+  else if (page === "About") aboutDisplay();
+  else if (page === "Services") servicesDisplay();
+  else if (page === "Gallery") galleryDisplay();
+  else if (page === "Contact") contactDisplay();
+  else alert("ERROR");
 
-    if (page == "Home") {
-      homeDisplay(); // displaying home
-    }
-    else if (page == "About") {
-      aboutDisplay(); // Display about
-    }
-    else if (page == "Services") {
-      servicesDisplay(); // Display services
-    }
-    else if (page == "Gallery") {
-      galleryDisplay(); // Display gallery
-    }
-    else if (page == "Contact") { 
-    contactDisplay(); // Display contact
-    } else {
-    alert("ERROR"); // Alert error if failure
-    }
+  document.getElementById('hamburger-nav').classList.remove('active');
+}
 
-    document.getElementById('hamburger-nav').classList.remove('active'); // toggling hamburger menu
-  }
 
 
