@@ -93,6 +93,7 @@ for (let i = 1; i <= MAX_IMAGES; i ++) {
 function gridDisplay() {
   const photoGridContainer = document.createElement("div");
   photoGridContainer.id = "photo-grid-container";
+  photoGridContainer.classList.add("blur-in");
   main.appendChild(photoGridContainer);
 
   for (let i = 0; i < bridalArray.length; i++) {
