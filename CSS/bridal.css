@@ -30,11 +30,11 @@
 
 .bridal-main {
     background: rgb(251,242,241);
-    background-image: url("../Photos/flower2.png");
+    background-image: url("../Photos/flower5.png");
     background-size: 100%;
     background-position: top center;
     background-repeat: no-repeat;
-    margin: 20vh 0vw 4vh 0vw;   /* height of header */
+    margin: 21.7vh 0vw 4vh 0vw;   /* height of header */
     padding: 0vh 2vw 0vh 2vw;
     width: 100%;
     box-sizing: border-box;
@@ -43,7 +43,7 @@
     opacity: 1;
     transform: translateY(20px);
     animation: fadeInUp 2s ease-out forwards;
-    padding-top: 30vh;
+    padding-top: 20vh;
 }
 
 .bridal-main p {
