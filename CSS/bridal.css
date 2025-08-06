@@ -4,7 +4,6 @@
     src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
 }
 
-
 .blur-in {
   filter: blur(3px);
   opacity: 0;
@@ -19,10 +18,6 @@
 }
 
 .bridal-body {
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-position-y: 3vh;
     padding: 0;
     margin:0vw;
     background-color: rgb(251,242,241);
@@ -35,7 +30,11 @@
 
 .bridal-main {
     background: rgb(251,242,241);
-    margin: 24vh 0vw 4vh 0vw;   /* height of header */
+    background-image: url("../Photos/flower2.png");
+    background-size: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    margin: 20vh 0vw 4vh 0vw;   /* height of header */
     padding: 0vh 2vw 0vh 2vw;
     width: 100%;
     box-sizing: border-box;
@@ -44,6 +43,7 @@
     opacity: 1;
     transform: translateY(20px);
     animation: fadeInUp 2s ease-out forwards;
+    padding-top: 30vh;
 }
 
 .bridal-main p {
@@ -52,10 +52,34 @@
   line-height: 1.7;
 }
 
-#bridal-image {
-    margin-top: 0vh;
-    margin-bottom: 4vh;
-    width: 100%;
-    opacity: 1;
-    transition: opacity 0.5s ease;
+.image-fader {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Adjust based on image shape */
+  margin-bottom: 4vh;
+  overflow: hidden;
+  border-radius: .5rem;
+  border: solid white;
+  border-width: .2rem;
+  background-color: rgb(251,242,241); /* fallback background in case image is missing */
+  justify-self: center;
 }
+
+.fade-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* Fills the container */
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 0;
+  border-radius: .5rem;
+}
+
+.fade-img.visible {
+  opacity: 1;
+  z-index: 1;
+}
+

@@ -31,8 +31,8 @@
 .gallery-image {
     width: 85%;
     box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.5);
-    border: solid black;
-    border-width: .1rem;
+    border: solid white;
+    border-width: .2rem;
     border-radius: .5rem;
 
     opacity: 0;

@@ -48,7 +48,7 @@ export function homeDisplay() {
 
   const bridalp = document.createElement("p");
   bridalp.id= "bridal-p";
-  bridalp.innerHTML = `With over a decade of experience in bridal hairstyling, Kendra knows that a bride’s hair isn’t just part of the look — it’s a central piece of the day. From the moment she arrives to the last dance, the bride deserves to feel confident, radiant, and unforgettable.`;
+  bridalp.innerHTML = `With over a decade of experience in bridal hairstyling, i know that a bride’s hair isn’t just part of the look — it’s a central piece of the day. From the moment she arrives to the last dance, the bride deserves to feel confident, radiant, and unforgettable.`;
   bridalSection.appendChild(bridalp);
 
   /**Learn more button */

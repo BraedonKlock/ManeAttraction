@@ -13,39 +13,64 @@ export function bridalDisplay() {
   main.classList.remove("grow", "fade", "zoom-in");
   main.innerHTML = "";
 
-  // Image array
-  const images = [
-    "./Photos/Gallery/Bridal/bridal1.jpeg",
-    "./Photos/Gallery/Bridal/bridal2.jpeg",
-    "./Photos/Gallery/Bridal/bridal3.jpeg"
-  ];
-  let current = 0;
+// Image array
+const images = [
+  "./Photos/Gallery/Bridal/bridal1.jpeg",
+  "./Photos/Gallery/Bridal/bridal2.jpeg",
+  "./Photos/Gallery/Bridal/bridal3.jpeg"
+];
 
-  // Create image element
-  const bridalImage = document.createElement("img");
-  bridalImage.id = "bridal-image";
-  bridalImage.src = images[current];
-  bridalImage.classList.add("blur-in");
-  main.appendChild(bridalImage);
+let current = 0;
+let isImgAActive = true;
 
-  // Rotate images every 4s with blur-in animation
-  setInterval(() => {
-    current = (current + 1) % images.length;
-    bridalImage.classList.remove("blur-in"); // remove class to re-trigger animation
-    void bridalImage.offsetWidth; // force reflow (resets animation)
-    bridalImage.src = images[current];
-    bridalImage.classList.add("blur-in");
-  }, 4000);
+// Create container for overlapping images
+const slider = document.createElement("div");
+slider.className = "image-fader";
+slider.classList.add("blur-in");
+main.appendChild(slider);
+
+// Create two image elements
+const imgA = document.createElement("img");
+const imgB = document.createElement("img");
+
+imgA.src = images[0];
+imgB.src = images[1]; // preload second image
+
+imgA.classList.add("fade-img", "visible");
+imgB.classList.add("fade-img");
+
+slider.appendChild(imgA);
+slider.appendChild(imgB);
+
+// Start crossfade interval
+setInterval(() => {
+  const nextIndex = (current + 1) % images.length;
+
+  if (isImgAActive) {
+    imgB.src = images[nextIndex];
+    imgB.classList.add("visible");
+    imgA.classList.remove("visible");
+  } else {
+    imgA.src = images[nextIndex];
+    imgA.classList.add("visible");
+    imgB.classList.remove("visible");
+  }
+
+  current = nextIndex;
+  isImgAActive = !isImgAActive;
+}, 4000);
+
+
 
   // Add paragraph
   const bridalp = document.createElement("p");
   bridalp.id = "bridal-p";
   bridalp.classList.add("blur-in");
   bridalp.innerHTML = `
-    You've imagined this day a thousand times — and Kendra is here to make sure every detail feels just right.<br><br>
-    Kendra understands how much care, emotion, and planning goes into a wedding, and she brings that same level of dedication to every bridal appointment. Her goal is simple: to make sure the bride’s hair is absolutely perfect — styled to last, flawless in photos, and true to her vision.<br><br>
-    From elegant updos to soft, romantic waves, Kendra works closely with each bride to ensure the hairstyle enhances her features, complements the dress, and reflects her personality. She also offers styling for the entire bridal party, making sure everyone looks and feels their best.<br><br>
-    Your wedding day is one of the most important days of your life — and Kendra is here to help you feel beautiful every step of the way.
+    You've imagined this day a thousand times — and i am here to make sure every detail feels just right.<br><br>
+    I understand how much care, emotion, and planning goes into a wedding, and i bring that same level of dedication to every bridal appointment. My goal is simple: to make sure the bride’s hair is absolutely perfect — styled to last, flawless in photos, and true to her vision.<br><br>
+    From elegant updos to soft, romantic waves, i work closely with each bride to ensure the hairstyle enhances her features, complements the dress, and reflects her personality. I also offers styling for the entire bridal party, making sure everyone looks and feels their best.<br><br>
+    Your wedding day is one of the most important days of your life — and i am here to help you feel beautiful every step of the way.
   `;
   main.appendChild(bridalp);
 
