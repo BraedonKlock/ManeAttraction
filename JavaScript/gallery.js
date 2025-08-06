@@ -1,7 +1,7 @@
 import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader,waitForAllImages } from './helper.js';
 
 /**Creating an array of images to loop through and and create elements to display the images. This reduces code*/
-const totalImages = 7;
+const totalImages = 8;
 
 const galleryImages = [];
 

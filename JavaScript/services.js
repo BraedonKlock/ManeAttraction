@@ -1,46 +1,5 @@
 import { checkFooterDisplay, removeBridal, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
-
-/**This is a service object */
-class Service {
-  constructor(name, description, price) {
-    this.name = name;
-    this.description = description;
-    this.price = price;
-  }
-}
-
-/**creating array of Service objects */
-const MAX_SERVICES = 3;
-const servicesList = new Array(MAX_SERVICES);
-
-
-/**services property values assigned */
-servicesList[0] = new Service("Men's Cut", "Basic Men's hair cut", "$44.99");
-servicesList[1] = new Service("Women's Hair Cut", "Basic Women's Hair cut", "$49.99");
-servicesList[2] = new Service("Women's Color", "Women's Color", "$89.99");
-
-/**This is a function to display a service */
-function createService(service) {
-  const container = document.createElement("div");
-  container.className = "service-container";
-
-  const name = document.createElement("h3");
-  name.textContent = service.name;
-  container.appendChild(name);
-
-  const description = document.createElement("p");
-  description.textContent = service.description;
-  container.appendChild(description);
-
-  const price = document.createElement("p");
-  price.textContent = service.price;
-  container.appendChild(price);
-
-  const hr = document.createElement("hr");
-  container.appendChild(hr);
-
-  return container;
-}
+import { hairCutStyling, hairColorOther, waxing, treatments } from './serviceObjects.js';
 
 /**This function displays the services to main */
 export function servicesDisplay() {
@@ -57,12 +16,46 @@ export function servicesDisplay() {
   const body = document.querySelector('body');
   body.className = "services-body";
 
-  /**printing service objects */
-  for (let i = 0; i < servicesList.length; i ++) {
-    const service = createService(servicesList[i]);
-    main.appendChild(service);
-  }
-  
+  /**Service options container */
+  const serviceOptions = document.createElement("div");
+  serviceOptions.id = "service-options-container";
+  main.appendChild(serviceOptions);
+
+  /**serviceList display container */
+  const serviceListDisplay = document.createElement("div");
+  serviceListDisplay.id = "service-list-display";
+  main.appendChild(serviceListDisplay);
+
+  const hairCutBtn = document.createElement("button");
+  hairCutBtn.className = "service-option-btn";
+  hairCutBtn.textContent = "Haircuts & Styling";
+  serviceOptions.appendChild(hairCutBtn);
+
+
+  /**hair color and other button */
+  const hairColorBtn = document.createElement("button");
+  hairColorBtn.className = "service-option-btn";
+  hairColorBtn.textContent = "Hair Color & Other";
+  serviceOptions.appendChild(hairColorBtn);
+
+    /**waxing button */
+  const waxingBtn = document.createElement("button");
+  waxingBtn.className = "service-option-btn";
+  waxingBtn.textContent = "Waxing";
+  serviceOptions.appendChild(waxingBtn);
+
+  /**Treatments button */
+  const treatmentsBtn = document.createElement("button");
+  treatmentsBtn.className = "service-option-btn";
+  treatmentsBtn.textContent = "Treatments";
+  serviceOptions.appendChild(treatmentsBtn);
+
+ /**Functions are called */
+  hairCutBtn.onclick = hairCutStyling;
+  hairColorBtn.onclick = hairColorOther;
+  waxingBtn.onclick = waxing;
+  treatmentsBtn.onclick = treatments;
+
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();
