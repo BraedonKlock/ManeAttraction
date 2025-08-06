@@ -70,7 +70,7 @@ setInterval(() => {
     You've imagined this day a thousand times — and I am here to make sure every detail feels just right.<br><br>
     I understand how much care, emotion, and planning goes into a wedding, and I bring that same level of dedication to every bridal appointment. My goal is simple: to make sure the bride’s hair is absolutely perfect — styled to last, flawless in photos, and true to her vision.<br><br>
     From elegant updos to soft, romantic waves, I work closely with each bride to ensure the hairstyle enhances her features, complements the dress, and reflects her personality. I also offer styling for the entire bridal party, making sure everyone looks and feels their best.<br><br>
-    Your wedding day is one of the most important days of your life — and I am here to help you feel beautiful every step of the way. <p><br>For more information or to book, please reach out to me at<br><strong>ManeAttractionHairDesign@gmail.com</strong><br>or<br><strong>613 - 326 - 1649</strong></p>
+    Your wedding day is one of the most important days of your life — and I am here to help you feel beautiful every step of the way. <p><br>For more information or to book, please reach out to me at:<br><strong>613 - 326 - 1649</strong><br>or<br><strong>ManeAttractionHairDesign@gmail.com</strong></p>
   `;
   main.appendChild(bridalp);
 
