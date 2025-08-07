@@ -38,7 +38,7 @@ This site is designed to deliver a seamless and elegant user experience for mobi
 - 💇 **Bridal Styling Focus** — A dedicated bridal section showcasing experience and offerings
 - 🖼️ **Dynamic Gallery** — Gallery loaded via DOM manipulation using JavaScript
 - ⚡ **Preloader** — Loader shown until all content and images are fully ready
-- 📌 **Sticky Navigation** — Simple and clear mobile navigation for user convenience
+- 📌 **Navigation** — Simple and clear mobile navigation for user convenience
 - 🧠 **Local Storage Memory** — Remembers the last visited section (with expiration)
 
 ---
