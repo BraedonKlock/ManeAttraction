@@ -1,5 +1,5 @@
 import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
-import { bridalDisplay } from './bridalv1.js'
+import { bridalDisplay } from './bridalv1.js?v=5.1.1'
 
 /**Home displays the home screen content */
 
@@ -60,6 +60,7 @@ export function homeDisplay() {
   button.addEventListener("click", bridalDisplay);
   bridalSection.appendChild(button); // adding the button to main
 
+  /**Load all images before scrolling to the top of the page and hiding the preloader */
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();

@@ -1,5 +1,8 @@
 import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
+/**This file has a function that displays the bridal page
+ * I also has an array of images that i loop through to create image tags and display images
+ */
 export function bridalDisplay() {
   showPreloader();
   checkMainId();

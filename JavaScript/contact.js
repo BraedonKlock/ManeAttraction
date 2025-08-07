@@ -1,45 +1,53 @@
 import { checkMainId, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
 
+/**This file has the function that displays contact page
+ * This function creates elements and displays buisiness hours contact information and address of kendra
+ * also embeds google maps location
+ */
+
+/**This function creates and displays business hours, contact information and address of kendra and buisiness */
 export function contactDisplay() {
-  showPreloader();
-  removeBridal();
-  checkMainId();
+  showPreloader(); // shows preloader while images load
+  removeBridal(); // removing bridal css class
+  checkMainId(); // removing css styling for about page from "main" so homes content isn't affected
 
-  const body = document.querySelector('body');
-  body.className = "contact-body";
+  const body = document.querySelector('body'); // getting the body element to add css styling
+  body.className = "contact-body"; // applying css styling to body
 
-  const main = document.getElementById('main');
-  main.classList.remove("grow","zoom-in","blur-in");
-  main.classList.add("fade");
-  main.innerHTML = "";
+  const main = document.getElementById('main'); // getting main to add contact content
+  main.classList.remove("grow","zoom-in","blur-in"); // removing css animation classes
+  main.classList.add("fade"); // adding css animation class
+  main.innerHTML = ""; // clearing previous content in main to add contact page content
 
-  /**Creating a div container to hold business hours */
-  const businessContainer = document.createElement("div");
-  businessContainer.id = "business-container";
-  main.appendChild(businessContainer);
+  /**Creating a div container to hold business hours
+   * structure is [businesscontainer holds -> h2 | (hours container holds-> days | hours) | hr]
+   */
+  const businessContainer = document.createElement("div"); // creating a div to hold the business hours section
+  businessContainer.id = "business-container"; // assigning an id for css styling
+  main.appendChild(businessContainer); // adding business container to main
 
-  const contacth2 = document.createElement("h2"); // header that holds the text "Business Hours"
-  contacth2.id = "contact-h2";
-  contacth2.textContent = "Business Hours";
-  businessContainer.appendChild(contacth2);
+  const contacth2 = document.createElement("h2"); // creating header that holds the text "Business Hours"
+  contacth2.id = "contact-h2"; // assigning an id for css styling
+  contacth2.textContent = "Business Hours"; // adding text content to the header element
+  businessContainer.appendChild(contacth2); // adding the header element to the business container
 
-  const hoursDiv = document.createElement("div"); // a container to hold the buisiness hours so that i can apply style
-  hoursDiv.id = "hours-div";
-  businessContainer.appendChild(hoursDiv);
+  const hoursDiv = document.createElement("div"); // a container to hold the buisiness hours so that i can apply css style
+  hoursDiv.id = "hours-div"; // assigning an id for css styling
+  businessContainer.appendChild(hoursDiv); // adding the div for the hours to the business container
 
-  const days = document.createElement("p"); // element holds days
-  days.id = "days";
-  days.innerHTML = `Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday`;
-  hoursDiv.appendChild(days);
+  const days = document.createElement("p"); // creating an element to hold days
+  days.id = "days"; // assigning an id for css styling
+  days.innerHTML = `Sunday<br>Monday<br>Tuesday<br>Wednesday<br>Thursday<br>Friday<br>Saturday`; // text in p element
+  hoursDiv.appendChild(days); // adding p element to the div for hours
 
-  const hours = document.createElement("p"); // element holds hours
-  hours.id = "hours";
-  hours.innerHTML = `CLOSED<br>CLOSED<br>10:00am - 3:00pm<br>10:00am - 8:00pm<br>10:00am - 8:30pm<br>10:00am - 3:00pm<br>&nbsp;&nbsp;8:00am - 5:00pm<br>`;
-  hoursDiv.appendChild(hours);
+  const hours = document.createElement("p"); // creating a p element to hold hours
+  hours.id = "hours"; // applying an id for css styling
+  hours.innerHTML = `CLOSED<br>CLOSED<br>10:00am - 3:00pm<br>10:00am - 8:00pm<br>10:00am - 8:30pm<br>10:00am - 3:00pm<br>&nbsp;&nbsp;8:00am - 5:00pm<br>`; // text in p element 
+  hoursDiv.appendChild(hours); // adding element that holds hours to hours div
 
-  const contacthr = document.createElement("hr");
-  contacthr.id="contact-hr";
-  businessContainer.appendChild(contacthr);
+  const contacthr = document.createElement("hr"); // creating a horizontal rule to seperate business hours from contactinfo
+  contacthr.id="contact-hr"; // assigning an id for css styling
+  businessContainer.appendChild(contacthr); // adding hr to business container
 
   /**Creating a div container to hold contact info */
   const contactInfo = document.createElement('div');
@@ -69,9 +77,10 @@ export function contactDisplay() {
     </section>
   `;
 
-  main.appendChild(contactInfo);
+  main.appendChild(contactInfo); // appending contact info to main
 
-  document.querySelector('footer').style.display = 'none';
+  document.querySelector('footer').style.display = 'none'; // hiding footer because it has the same info in contactInfo div
+  
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();

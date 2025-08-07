@@ -1,4 +1,4 @@
-import { homeDisplay } from './home.js'; // function displays home page
+import { homeDisplay } from './home.js?v=5.1.1'; // function displays home page
 import { aboutDisplay } from './about.js'; // function displays about page
 import { servicesDisplay } from './services.js?v=5.1.1'; // function ddisplays the services page
 import { bridalDisplay } from './bridalv1.js?v=5.1.1'; // function displays the bridal page
@@ -14,7 +14,8 @@ import { contactDisplay } from './contact.js'; // function displays the contact 
  * event listener for scroll and click outside hamburger menu collapses hamburger menu
  */
 
-homeDisplay() // displaying home as default
+homeDisplay(); // Default to home when page is firt loaded
+
 /**Event listener for page refresh, and function that checks expiration time to determin what to display*/
 window.addEventListener('load', () => {
   window.scrollTo({ top: 0, behavior: "auto" });
