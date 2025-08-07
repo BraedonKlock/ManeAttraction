@@ -71,7 +71,7 @@ hairColorOtherList[2] = new Service("Full head foils / haircut included", "A ful
 
 hairColorOtherList[3] = new Service("Partial foils / haircut included", "Partial foils create dimension and make for a more natural grow out while adding brightness and freshness to your colour. Colour includes haircut toner and up to 4 ounces of colour.", "$155.00");
 
-hairColorOtherList[4] = new Service("Colour Correction / haircut included", "Corrective service to fix hair colour tone. Colour corrections are priced separately and require a consultation for cost.", "$100.00");
+hairColorOtherList[4] = new Service("Colour Correction / haircut included", "Corrective service to fix hair colour tone. Colour corrections are priced separately and require a consultation for cost.", "$100.00 / h");
 
 hairColorOtherList[5] = new Service("Ombré/ Balayage technique / haircut included", "Ombre and Balayage is a specialized technique learned only from continued education sources. This look creates a soft grow out, longer lasting colour and beautiful natural style specific to you. This includes a haircut, toner, and up to 4oz of colour.", "$180.00");
 
