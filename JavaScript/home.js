@@ -1,5 +1,6 @@
-import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
-import { bridalDisplay } from './bridalv1.js?v=5.1.1'
+import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js?v=7.1.1';
+import { bridalDisplay } from './bridal.js?v=7.1.1';
+import { aboutDisplay } from './about.js?v=7.1.1';
 
 /**Home displays the home screen content */
 
@@ -34,9 +35,23 @@ export function homeDisplay() {
     
     Whether you're preparing for your big day, a special event, or just want a fresh new look, I’m here to make you feel confident and radiant. From bridal and formal styling to everyday transformations, I’m dedicated to bringing your hair goals to life with creativity and care.`;
   main.appendChild(welcomeMess); // adding the welcome message to main
+  
+  /**This div is for the desktop version More About Kendra button to be apply to apply center for the button as the image float affected the button */
+  const aboutDiv = document.createElement("div");
+  aboutDiv.id="about-div";
+  main.appendChild(aboutDiv);
+
+  const aboutButton = document.createElement("button"); // creating a button that will link to the bridal page
+  aboutButton.textContent = "More About Kendra"; // button says "Learn More"
+  aboutButton.id = "about-kendra-btn"; // assigning id for css styling
+  // adding an event listener to the button that will execute a funtion that displays the bridal page
+  aboutButton.addEventListener("click", aboutDisplay);
+  aboutDiv.appendChild(aboutButton); // adding the button to main
+
   const homehr = document.createElement("hr"); // creating a horizontal rule to seperate welcome message from bridal
   homehr.id = "home-hr"; // assigning id to apply css styling
   main.appendChild(homehr); // adding hr to main
+
 
   const bridalSection = document.createElement("div"); // creating a container for the bridal section of home
   bridalSection.classList.add("fade-in") // adding css animation class
@@ -49,7 +64,7 @@ export function homeDisplay() {
   bridalSection.appendChild(bridalh1); // adding the h1 tag to main
 
   const bridalp = document.createElement("p"); // creating a p element to display bridal intro
-  bridalp.id= "bridal-p"; // assigning id for css styling
+  bridalp.id= "home-bridal-p"; // assigning id for css styling
   bridalp.innerHTML = `With over a decade of experience in bridal hairstyling, I know that a bride’s hair isn’t just part of the look — it’s a central piece of the day. From the moment she arrives to the last dance, the bride deserves to feel confident, radiant, and unforgettable.`;
   bridalSection.appendChild(bridalp); // adding bridal intro to main
 

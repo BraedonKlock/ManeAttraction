@@ -1,4 +1,4 @@
-import { checkFooterDisplay, removeBridal, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, checkMainId, hidePreloader, showPreloader, waitForAllImages } from './helper.js?v=7.1.1';
 import { hairCutStyling, hairColorOther, waxing, treatments } from './serviceObjectsv1.js?v=5.1.1';
 
 /**This function displays the services to main */

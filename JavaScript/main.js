@@ -1,9 +1,9 @@
-import { homeDisplay } from './home.js?v=5.1.1'; // function displays home page
-import { aboutDisplay } from './about.js'; // function displays about page
-import { servicesDisplay } from './services.js?v=5.1.1'; // function ddisplays the services page
-import { bridalDisplay } from './bridalv1.js?v=5.1.1'; // function displays the bridal page
-import { galleryDisplay } from './gallery.js';// function displays galllery page
-import { contactDisplay } from './contact.js'; // function displays the contact page
+import { homeDisplay } from './home.js?v=7.1.1'; // function displays home page
+import { aboutDisplay } from './about.js?v=7.1.1'; // function displays about page
+import { servicesDisplay } from './services.js?v=7.1.1'; // function ddisplays the services page
+import { bridalDisplay } from './bridal.js?v=7.1.1'; // function displays the bridal page
+import { galleryDisplay } from './gallery.js?v=7.1.1';// function displays galllery page
+import { contactDisplay } from './contact.js?v=7.1.1'; // function displays the contact page
 
 /**
  * This file handles the menu and calls the functions corresponding to the menu options
@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburger'); // the icon/button that the user clicks
   const navMenu = document.getElementById('hamburger-nav'); // the container holding the links
   const navLinks = document.querySelectorAll('#hamburger-nav a'); // the nodelist of all anchor tags within
+  const desktopNavLinks = document.querySelectorAll('#nav a'); // the nodelist of all anchor tags within
 
   /**If hamburger icon and container for links exist then add event listener to the hamburger icon */
   if (hamburger && navMenu) {
@@ -63,6 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /**Looping through navLink nodelist and applying event listener to anchor tags */
   for (let i = 0; i < navLinks.length; i++) {
     navLinks[i].addEventListener('click', handleNavClick);
+    desktopNavLinks[i].addEventListener('click', handleNavClick);
   }
 });
 

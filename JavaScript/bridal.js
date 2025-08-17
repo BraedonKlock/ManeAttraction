@@ -1,4 +1,4 @@
-import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader, waitForAllImages } from './helper.js?v=7.1.1';
 
 /**This file has a function that displays the bridal page
  * I also has an array of images that i loop through to create image tags and display images
@@ -17,6 +17,10 @@ export function bridalDisplay() {
   main.classList.remove("grow", "fade", "zoom-in");
   main.innerHTML = "";
 
+  const textDiv = document.createElement("div");
+  textDiv.id = "text-div";
+  main.appendChild(textDiv);
+
 // Image array
 const images = [
   "./Photos/Gallery/Bridal/bridal1.jpeg",
@@ -31,7 +35,7 @@ let isImgAActive = true;
 const slider = document.createElement("div");
 slider.className = "image-fader";
 slider.classList.add("blur-in");
-main.appendChild(slider);
+textDiv.appendChild(slider);
 
 // Create two image elements
 const imgA = document.createElement("img");
@@ -65,7 +69,6 @@ setInterval(() => {
 }, 4000);
 
 
-
   // Add paragraph
   const bridalp = document.createElement("p");
   bridalp.id = "bridal-p";
@@ -74,12 +77,13 @@ setInterval(() => {
     You've imagined this day a thousand times — and I am here to make sure every detail feels just right.<br><br>
     I understand how much care, emotion, and planning goes into a wedding, and I bring that same level of dedication to every bridal appointment. My goal is simple: to make sure the bride’s hair is absolutely perfect — styled to last, flawless in photos, and true to her vision.<br><br>
     From elegant updos to soft, romantic waves, I work closely with each bride to ensure the hairstyle enhances her features, complements the dress, and reflects her personality. I also offer styling for the entire bridal party, making sure everyone looks and feels their best.<br><br>
-    Your wedding day is one of the most important days of your life — and I am here to help you feel beautiful every step of the way.<br><br>For more information or to book, please reach out to me at:<br><strong>613-326-1649</strong><br>or<br><strong>ManeAttractionHairDesign@gmail.com</strong>
+    Your wedding day is one of the most important days of your life — and I am here to help you feel beautiful every step of the way.<br><br>
+    <p style="text-align:center">For more information or to book, please reach out to me at:<br><strong>613-326-1649</strong><br>or<br><strong>ManeAttractionHairDesign@gmail.com</strong></p>
   `;
-  main.appendChild(bridalp);
+  textDiv.appendChild(bridalp);
 
   gridDisplay();
-
+  GalleryScrollEffect();
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
     hidePreloader();
@@ -103,7 +107,30 @@ function gridDisplay() {
   for (let i = 0; i < bridalArray.length; i++) {
     const image = document.createElement("img");
     image.classList.add("grid-image");
+    image.classList.add("bridal-image");
     image.src = bridalArray[i];
     photoGridContainer.appendChild(image);
   }
 }
+
+
+/**This function sets a scroll effect to every image */
+function GalleryScrollEffect() {
+    function showImagesOnScroll() {
+        let images = document.querySelectorAll('.bridal-image');
+
+        for (let i = 0; i < images.length; i++) {
+            let image = images[i];
+            let imageTop = image.getBoundingClientRect().top;
+            let windowHeight = window.innerHeight;
+
+            if (imageTop < windowHeight - 50) {
+                image.classList.add('visible');
+            }
+        }
+    }
+
+    // Run on scroll and once on load
+    window.addEventListener('scroll', showImagesOnScroll);
+    window.addEventListener('load', showImagesOnScroll);
+  }

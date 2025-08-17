@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="./CSS/bridal.css">
     <link rel="stylesheet" href="./CSS/gallery.css">
     <link rel="stylesheet" href="./CSS/contact.css">
-
 </head>
 <body class="body">
   <!-- Preloader-->
@@ -29,17 +28,17 @@
   <div id="site-content" style="display: none;">
     <!--DESKTOP VERSION-->
     <header class="desktop">
-            <nav>
-            </nav>
+        <div id="image"><img src="./Photos/logoT.png"></div>
+        <nav class="dektop" id="nav">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Bridal</a>
+          <a href="#">Gallery</a>
+          <a href="#">Contact</a>
+        </nav>
+        <a href="https://www.vagaro.com/maneattractionhairdesign1" id="book-button">BOOK NOW</a>
     </header>
-    <main class="desktop" style="font-weight: bold; font-size: xx-large;">Website for laptops is currently under construction. for now please go to a mobile device and check back later!</main>
-
-    <!--TABLET VERSION-->
-    <header class="tablet">
-            <nav>
-            </nav>
-    </header>
-    <main class="tablet" style="font-weight: bold; font-size: xx-large;"><h1>Tablet version website under construction go to mobile</h1></main>
 
     <!--MOBILE VERSION-->
     <header class="mobile">
@@ -47,34 +46,38 @@
             <div class="hamburger" id="hamburger"><p>☰</p></div>
             <div id="image"><img src="./Photos/logoT.png"></div>
             <a href="https://www.vagaro.com/maneattractionhairdesign1" id="book-button">BOOK NOW</a>
-        </nav>
-        <div class="mobile" id="hamburger-nav">
+          </nav>
+          <div class="mobile" id="hamburger-nav">
             <a href="#">Home<hr class="hamburger-line"></a>
             <a href="#">About<hr class="hamburger-line"></a>
             <a href="#">Services<hr class="hamburger-line"></a>
             <a href="#">Bridal<hr class="hamburger-line"></a>
             <a href="#">Gallery<hr class="hamburger-line"></a>
             <a href="#">Contact</a>
-        </div>
-    </header>
-    
-    <main class="mobile" id="main"></main>
-    
-    <footer class="mobile">
-        <p>Kendra Roney</p>
-        <p>613-326-1649</p>
-        <p>10 Maple Avenue, Unit 6<br>
-           Smiths Falls</p>
-        <div id="sm-links">
-            <a href="https://www.facebook.com/share/1CKPXq4F6a/"><img src="./Photos/fbLogo.jpg" id="fb-logo"></a>
-            <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211"><img src="./Photos/InstagramLogo.png" id="inst-logo"></a>
-        </div>
-        <p>© 2025 Mane Attraction Hair Design. All rights reserved.</p>
-    </footer>
-  </div> <!-- END #site-content -->
+          </div>
+        </header>
+        
+        <main id="main"></main>
+        
+        <footer>
+          <div id="footer-container">
+            <div id="footer-contact">
+              <p>Kendra Roney</p>
+              <p>613-326-1649</p>
+              <p>10 Maple Avenue, Unit 6<br>
+                 Smiths Falls</p>
+            </div>
+            <div id="sm-links">
+                <p>Connect with us:</p>
+                <a href="https://www.facebook.com/share/1CKPXq4F6a/"><img src="./Photos/fbLogo.jpg" id="fb-logo"></a>
+                <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211"><img src="./Photos/InstagramLogo.png" id="inst-logo"></a>
+            </div>
+          </div>
+            <p>© 2025 Mane Attraction Hair Design. All rights reserved.</p>
+        </footer>
 
   <!--Driver file that handles menu option selected - added a qury string to bust up cache on bluehost-->
-  <script type="module" src="./JavaScript/mainv1.js?v=8.1.1"></script>
+  <script type="module" src="./JavaScript/main.js?v=7.1.1"></script>
 
   <script>
     /*Event listener waits for everything to load and then tuns off the preloader display and shows the web content*/

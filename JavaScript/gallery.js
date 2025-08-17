@@ -1,4 +1,4 @@
-import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader,waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, checkMainId, showPreloader, hidePreloader,waitForAllImages } from './helper.js?v=7.1.1';
 
 /**Creating an array of images to loop through and and create elements to display the images. This reduces code*/
 const totalImages = 8;
@@ -20,18 +20,18 @@ export function galleryDisplay() {
   main.innerHTML = "";
   const body = document.querySelector('body');
   body.className = "gallery-body";
-
+  
+  const header = document.createElement("p");
+  header.id = "gallery-header";
+  header.textContent = "Gallery";
+  main.appendChild(header);
+  
   const div = document.createElement("div");
   div.id = "gallery-container";
   div.classList.add("fade-in");
-
-  const header = document.createElement("p");
-  header.id = "gallery-header";
-
-  header.textContent = "Gallery";
-  div.appendChild(header);
-
   main.appendChild(div);
+
+
   for (let i = 0; i < galleryImages.length; i ++) {
       const img = document.createElement("img");
       img.className = "gallery-image";
@@ -45,12 +45,12 @@ export function galleryDisplay() {
   const seeMore = document.createElement("p");
   seeMore.id = "gallery-see-more"
   seeMore.textContent = "See more photos at:";
-  div.appendChild(seeMore);
+  main.appendChild(seeMore);
 
   /**This is the container for the links to more photos */
   const linkDiv = document.createElement("div");
   linkDiv.id = "gallery-links";
-  div.appendChild(linkDiv);
+  main.appendChild(linkDiv);
   
   /**This is the facebook image and link */
   const fbAnchor = document.createElement("a");
@@ -58,7 +58,7 @@ export function galleryDisplay() {
   linkDiv.appendChild(fbAnchor);
   const fbImage = document.createElement("img");
   fbImage.id = "gallery-fb";
-  fbImage.src = "./Photos/fbLogo.jpg";
+  fbImage.src = "./Photos/fbLogo1.png";
   fbAnchor.appendChild(fbImage);
 
   /**This is the instagram image and link */
@@ -67,7 +67,7 @@ export function galleryDisplay() {
   linkDiv.appendChild(instAnchor);
   const instImage = document.createElement("img");
   instImage.id = "gallery-inst";
-  instImage.src = "./Photos/InstagramLogo.png";
+  instImage.src = "./Photos/InstagramLogo1.png";
   instAnchor.appendChild(instImage);
 
   GalleryScrollEffect();

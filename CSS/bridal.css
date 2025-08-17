@@ -17,91 +17,235 @@
   }
 }
 
-.bridal-body {
-    padding: 0;
-    margin:0vw;
-    background-color: rgb(251,242,241);
-    width: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
-    height: 1000px;
-}
+/*MOBILE DISPLAY*/
+@media  (max-width: 800px) {
+  /*Disabling desktop display*/
+  .desktop {
+      display: none;
+  }
+  .tablet {
+      display: none;
+  }
+  .bridal-body {
+      padding: 0;
+      margin:0vw;
+      background-color: rgb(251,242,241);
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+      height: 1000px;
+  }
 
-.bridal-main {
-    background: rgb(251,242,241);
-    background-image: url("../Photos/flower5.png");
-    background-size: 100%;
-    background-position: top center;
-    background-repeat: no-repeat;
-    margin: 21.7vh 0vw 4vh 0vw;   /* height of header */
-    padding: 0vh 2vw 0vh 2vw;
+  .bridal-main {
+      background: rgb(251,242,241);
+      background-image: url("../Photos/flower5.png");
+      background-size: 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+      margin: 21.7vh 0vw 4vh 0vw;   /* height of header */
+      padding: 0vh 2vw 0vh 2vw;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 -8px 12px -4px rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+      opacity: 1;
+      transform: translateY(20px);
+      animation: fadeInUp 2s ease-out forwards;
+      padding-top: 20vh;
+  }
+
+  #bridal-p {
+    margin: 0vh 0vw 2vw 0vw;
+    font-family: sans-serif;
+    line-height: 1.7;
+  }
+
+  .image-fader {
+    position: relative;
     width: 100%;
-    box-sizing: border-box;
-    box-shadow: 0 -8px 12px -4px rgba(0, 0, 0, 0.4);
-    border-radius: 8px;
+    aspect-ratio: 4 / 3; /* Adjust based on image shape */
+    margin-bottom: 4vh;
+    overflow: hidden;
+    border-radius: .5rem;
+    border: solid white;
+    border-width: .2rem;
+    background-color: rgb(251,242,241); /* fallback background in case image is missing */
+    justify-self: center;
+  }
+
+  .fade-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Fills the container */
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    border-radius: .5rem;
+  }
+
+  .fade-img.visible {
     opacity: 1;
-    transform: translateY(20px);
-    animation: fadeInUp 2s ease-out forwards;
-    padding-top: 20vh;
+    z-index: 1;
+  }
+
+  #photo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 3vw 3vw;
+    max-width: 100%; /* Prevent from exceeding the body */
+    margin: 0 auto;   /* Center it if there's extra space */
+    box-sizing: border-box;
+  }
+  .bridal-image {
+      width: 100%;
+      box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.5);
+      border: solid white;
+      border-width: .2rem;
+      border-radius: .5rem;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .bridal-image.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .grid-image {
+
+    box-sizing: border-box;
+    display: block;
+      aspect-ratio: 1 / 1; /* makes it a square */
+    object-fit: cover;
+  }
 }
 
-.bridal-main p {
-  margin: 0vh 0vw 2vh 0vw;
-  font-family: sans-serif;
-  line-height: 1.7;
-}
+/*DESKTOP DISPLAY*/
+@media  (min-width: 1024px) {
+  /*Disabling mobile display*/
+  .mobile {
+      display: none;
+  }
+  .tablet {
+      display: none;
+  }
+  .bridal-body {
+      padding: 0;
+      margin:0vw;
+      background-color: rgb(251,242,241);
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;   
+  }
 
-.image-fader {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3; /* Adjust based on image shape */
-  margin-bottom: 4vh;
-  overflow: hidden;
-  border-radius: .5rem;
-  border: solid white;
-  border-width: .2rem;
-  background-color: rgb(251,242,241); /* fallback background in case image is missing */
-  justify-self: center;
-}
+  .bridal-main {
+      background-image: url("../Photos/flower5.png");
+      background-size: 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+      margin: 0vw 0vw 4vh 0vw;   /* height of header */
+      padding: 15vw 2vw 2vw 2vw;
+      width: 100%;
+      box-sizing: border-box;
+      opacity: 1;
+      transform: translateY(20px);
+      animation: fadeInUp 2s ease-out forwards;
+      opacity: 5;
+  }
 
-.fade-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%; /* Fills the container */
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  z-index: 0;
-  border-radius: .5rem;
-}
+  #bridal-p {
+    margin: 15vw 0vw 2vw 0vw;
+    font-family: sans-serif;
+    line-height: 1.7;
+    background-color: rgba(251, 242, 241, 0.1); /* 60% opaque */
+    text-align: left;
+    padding: 0 0vw 0 1vw;
+    border-left: solid rgb(230,125,129);
+    border-width: .5rem;
+  }
+  #text-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0vw;
+    padding: 0;
+  }
 
-.fade-img.visible {
-  opacity: 1;
-  z-index: 1;
-}
+  .image-fader {
+    width: 100%;
+    position: relative;
+    aspect-ratio: 4 / 3; /* Adjust based on image shape */
+    margin:15vw 0 4vw 0vw ;
+    overflow: hidden;
+    border-radius: .5rem;
+    border: solid white;
+    border-width: .2rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.5);
+    justify-self: center;
+    margin-right: 1vw;
+  }
 
-#photo-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* you missed the 1fr! */
-  gap: 0.5rem;
-  max-width: 100%; /* Prevent from exceeding the body */
-  margin: 0 auto;   /* Center it if there's extra space */
-  box-sizing: border-box;
-}
+  .fade-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;                 /* fill the container’s height */
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+  }
 
-.grid-image {
-  width: 100%;
-  height: auto;
-  border: 0.2rem solid white;
-  border-radius: .5rem;
-  box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.5);
-  box-sizing: border-box;
-  display: block;
+  .fade-img.visible {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  #photo-grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw 2vw;
+    max-width: 100%; /* Prevent from exceeding the body */
+    margin: 0 auto;   /* Center it if there's extra space */
+    box-sizing: border-box;
+  }
+
+  .bridal-image {
+      width: 100%;
+      box-shadow: 0 8px 12px 4px rgba(0, 0, 0, 0.5);
+      border: solid white;
+      border-width: .2rem;
+      border-radius: .5rem;
+
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+    .bridal-image.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .grid-image {
+    box-sizing: border-box;
+    display: block;
     aspect-ratio: 1 / 1; /* makes it a square */
-  object-fit: cover;
+    object-fit: cover;
+  }
 }
 
-
+@media  (min-width: 801px) and (max-width:1023px) {
+  .desktop{
+      display: none;
+  }
+  .mobile {
+      display: none;
+  }
+}

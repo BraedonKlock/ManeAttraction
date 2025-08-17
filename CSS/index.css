@@ -1,3 +1,8 @@
+/*This is the font plug-ins*/
+@font-face {
+    font-family: 'Imperial Script';
+    src: url('../Fonts/Imperial_Script,Playwrite_CA/Playwrite_CA/PlaywriteCA-VariableFont_wght.ttf') format('truetype');
+}
 /*PRELOADER*/
 #preloader {
   position: fixed;
@@ -27,16 +32,16 @@
   }
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /*-------------------------------------------------------------------------------------------------------------*/
 /*MOBILE DISPLAY*/
 @media  (max-width: 800px) {
 
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
 
     /*Disabling desktop display*/
     .desktop {
@@ -162,7 +167,7 @@
     /*MAIN*/
     main {
     background: rgb(251,242,241);
-    margin: 46vh 0vw 4vh 0vw;   /* height of header */
+    margin: 46vh 0vw 0 0vw;   /* height of header */
     padding: 0vh 2vw 0vh 2vw;
     width: 100%;
     box-sizing: border-box;
@@ -186,7 +191,7 @@
     }
 
     footer p {
-        margin: 2vh 0 0 0;
+        margin: 2vw 0 0 0;
         font-family: serif;
     }
 
@@ -198,8 +203,7 @@
         width: 10%;
     }
     #inst-logo{
-        width: 8.6%;
-        margin-bottom: .2vh;
+        width: 10%;
     }
 }
 
@@ -216,57 +220,154 @@
     }
 
     /*HEADER*/
+    #image {
+        display: flex;
+        background-color: rgb(251,242,241);
+        width: 100%;
+    }
+    #image img {
+        width:150px;
+    }
+    #image img:hover {
+        transform: scale(1.2);
+        transition: transform 0.3s ease;
+    }
     header {
         background-color: rgb(251,242,241);
         border-bottom: solid black;
         display: flex;
         flex-direction: row;
+        position: fixed;
+        z-index: 1000;  /* stays above everything */
         gap: 5vw;
         margin-top: 0;
-        align-items: center;
-        position: fixed;
+        align-items: flex-end;
         z-index: 1000;  /* stays above everything */
         width: 100%;
         padding: 0;
+        padding: 0;
+        opacity: 1;
+        transform: translateY(5px);
+        animation: fadeInUp 2s ease-out forwards;
     }
 
+    
     nav {
         display: flex;
         flex-direction: row;
-        gap: 5vw;
-        margin-top: 3vw;
-        margin-left: 48vw;
+        align-items: flex-end;
+        gap: 2.8rem;
+        margin: 0vh 10rem 0vh 0;
+        background-color: rgb(251,242,241);
+        padding-bottom: 1rem;
+    }
+    nav a {
+        color: black;
+        background-color: rgb(251,242,241);
+        text-decoration: none;
+        color: black;
+        font-family: 'Imperial Script';
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
+    
+    a {
+        text-decoration: none;
+        color: black;
+        font-family: serif;
+    }
+    #book-button {
+        display: inline-block;
+        position: absolute;
+        right: 1vw;
+        bottom: 1.5rem;
+        border-radius: .375rem;
+        padding: .5rem;
+        font-family: serif;
+        font-size: 1rem;
+        font-weight: bolder;
+        background-color: rgb(249,213,211);
+        -webkit-tap-highlight-color: transparent; /*this removes the mobile blue box */
+        text-align: center;
+    }
+    #book-button:hover {
+        cursor: pointer;
+        transform: scale(1.2);
+        transition: all 0.2s ease;    
     }
 
-/* body (clean, no image) */
-body {
-  padding: 0;
-  margin: 0;
-  background-color: white;
-  width: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    nav a:hover {
+        color: rgb(230,125,129);
+    }
+    
+    /*BODY*/
+    .body {
+        background-image: url('../Photos/Studio2.jpeg');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        margin:0vw;
+        background-color: rgb(251,242,241);
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    }
 
 
     /*MAIN*/
     main {
-    background: rgb(251,242,241);
-    margin-top: 35vh;   /* height of header */
-    padding: 40px 20px;
-    width: 100%;
-    box-shadow: 0 .5px 10px black;
-    border-radius: 8px;
-    height: 1000px;
+        background: rgb(251,242,241);
+        margin-top: 65vh;   /* height of header */
+        padding: 40px 20px;
+        border-bottom: solid black;
+        border-top: solid black;
+        border-width: .1rem;
     }
 
     /*FOOTER*/
     footer {
-        background-color: rgb(251,242,241);
-        font-family: serif;
+        background-color: rgb(251,242,245);
+        font-family: sans-serif;
+        font-weight: bold;
         width: 100%;
-        margin-top: .1vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 2vw;
+        padding-top: 2vw;
+    }
+    #footer-container {
+        display: flex;
+        justify-content: space-between; /* pushes items apart */
+        align-items: flex-start;
+    }
+
+    
+    footer p { 
+        margin: 2vh 0 0 0;
+        font-family: serif;
+    }
+    #footer-contact, #sm-links {
+        text-align: center;
+        justify-items: center;
+        flex: 1;         /* each takes up equal space */
+        padding: 0 2vw;  /* add some breathing room */
+    }
+    #sm-links {
+        margin: 2vh 0 0vh 0;
+        -webkit-tap-highlight-color: transparent; /*this removes the mobile blue box */
+    }
+    #fb-logo {
+        width: 10%;
+    }
+    #fb-logo:hover, #inst-logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+    }
+    #inst-logo{
+        width: 9.5%;
     }
 }
 

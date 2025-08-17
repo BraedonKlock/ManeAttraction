@@ -1,4 +1,4 @@
-import { checkFooterDisplay, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { checkFooterDisplay, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js?v=7.1.1';
 
 /** This file creates elements and display info about kendra */
 
@@ -24,18 +24,47 @@ export function aboutDisplay() {
   image.src = "./Photos/kendra2.jpeg"; // image location
   main.appendChild(image); // adding image to main
 
+  /**This container is for the desktop version so that i can group the text together and place it beside the photo*/
+  const textDiv = document.createElement("div");
+  textDiv.id = "about-text-div";
+  main.appendChild(textDiv);
+
   /**Adding "About kendra" header" to main*/
   const abouth1 = document.createElement("h1"); // header h1
   abouth1.id = "about-h1"; // assigning an id for css styling
   abouth1.classList.add("zoom-in"); // adding css animation class
   abouth1.textContent = "About Kendra" // header h1 will say "about kendra"
-  main.appendChild(abouth1); // adding header to main
+  textDiv.appendChild(abouth1); // adding header to main
 
   /**Adding kendra about paragraph to main*/
   const p = document.createElement('p'); // creating p element for kendras about info
   p.classList.add("zoom-in") // adding css animation styling
-  p.innerHTML = `Kendra began her hairdressing journey in 2013 she completed a three-year apprenticeship that combined hands-on salon experience with classroom training. She has been a licensed hairstylist since 2016.<br><br><h2 class="about-h2">Continued Learning</h2>Passionate about continued growth, Kendra trained at the Redken Academy in Toronto, where she expanded her knowledge in color theory, advanced cutting techniques, blonding concepts and formulations, freehand balayage painting, and foliage techniques. She is also certified in curly hair through DevaCurl, allowing her to specialize in textured and natural curls.<br><br>In addition to hairstyling, Kendra is currently working toward her makeup certification, further expanding her ability to offer complete, personalized beauty services.<br><br><h2 class="about-h2">Commitment</h2>With a deep love for the craft and a commitment to making others feel their best, Kendra brings skill, creativity, and care to every appointment.`;
-  main.appendChild(p); // adding p element to main
+  p.innerHTML = `Kendra began her hairdressing journey in 2013 she completed a three-year apprenticeship that combined hands-on salon experience with classroom training. She has been a licensed hairstylist since 2016.`;
+  textDiv.appendChild(p); // adding p element to main
+
+
+  const abouth2 = document.createElement("h2"); // header h2
+  abouth2.classList.add("about-h2"); // assigning an id for css styling
+  abouth2.classList.add("zoom-in"); // adding css animation class
+  abouth2.textContent = "Continued Learning" // header h1 will say "Continued Learning"
+  textDiv.appendChild(abouth2); // adding header to main
+
+  /**Adding kendra about paragraph to main*/
+  const pCL = document.createElement('p'); // creating p element for kendras continued learning info
+  pCL.classList.add("zoom-in") // adding css animation styling
+  pCL.innerHTML = `Passionate about continued growth, Kendra trained at the Redken Academy in Toronto, where she expanded her knowledge in color theory, advanced cutting techniques, blonding concepts and formulations, freehand balayage painting, and foliage techniques. She is also certified in curly hair through DevaCurl, allowing her to specialize in textured and natural curls.<br><br>In addition to hairstyling, Kendra is currently working toward her makeup certification, further expanding her ability to offer complete, personalized beauty services.`;
+  textDiv.appendChild(pCL); // adding p element to main
+
+  const abouth3 = document.createElement("h2"); // header h2
+  abouth3.classList.add("about-h2"); // assigning an id for css styling
+  abouth3.classList.add("zoom-in"); // adding css animation class
+  abouth3.textContent = "Commitment" // header h2 will say "Commitment"
+  textDiv.appendChild(abouth3); // adding header to main
+
+  const pCOM = document.createElement('p'); // creating p element for kendras commitment info
+  pCOM.classList.add("zoom-in") // adding css animation styling
+  pCOM.innerHTML = `With a deep love for the craft and a commitment to making others feel their best, Kendra brings skill, creativity, and care to every appointment.`;
+  textDiv.appendChild(pCOM); // adding p element to main
 
   waitForAllImages(() => {
     window.scrollTo({ top: 0, behavior: "auto" }); // making page scroll to top upon load

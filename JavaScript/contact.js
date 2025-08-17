@@ -1,4 +1,4 @@
-import { checkMainId, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js';
+import { checkMainId, removeBridal, showPreloader, hidePreloader, waitForAllImages } from './helper.js?v=7.1.1';
 
 /**This file has the function that displays contact page
  * This function creates elements and displays buisiness hours contact information and address of kendra
@@ -42,7 +42,7 @@ export function contactDisplay() {
 
   const hours = document.createElement("p"); // creating a p element to hold hours
   hours.id = "hours"; // applying an id for css styling
-  hours.innerHTML = `CLOSED<br>CLOSED<br>10:00am - 3:00pm<br>10:00am - 8:00pm<br>10:00am - 8:30pm<br>10:00am - 3:00pm<br>&nbsp;&nbsp;8:00am - 5:00pm<br>`; // text in p element 
+  hours.innerHTML = `<span id="closed">CLOSED<br>CLOSED</span><br>10:00am - 3:00pm<br>10:00am - 8:00pm<br>10:00am - 8:30pm<br>10:00am - 3:00pm<br>&nbsp;&nbsp;8:00am - 5:00pm<br>`; // text in p element 
   hoursDiv.appendChild(hours); // adding element that holds hours to hours div
 
   const contacthr = document.createElement("hr"); // creating a horizontal rule to seperate business hours from contactinfo
@@ -58,8 +58,8 @@ export function contactDisplay() {
           <p>ManeAttractionHairDesign@gmail.com</p>
       <p style="font-weight: bold">Connect with us:</p>
           <div id="sm-links">
-              <a href="https://www.facebook.com/share/1CKPXq4F6a/"><img src="./Photos/fbLogo.jpg" id="fb-logo"></a>
-              <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211"><img src="./Photos/InstagramLogo.png" id="inst-logo"></a>
+              <a href="https://www.facebook.com/share/1CKPXq4F6a/"><img src="./Photos/fbLogo1.png" id="fb-logo"></a>
+              <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211"><img src="./Photos/InstagramLogo1.png" id="inst-logo"></a>
           </div>
       </div>
 
