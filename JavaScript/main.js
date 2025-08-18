@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.getElementById('hamburger'); // the icon/button that the user clicks
   const navMenu = document.getElementById('hamburger-nav'); // the container holding the links
   const navLinks = document.querySelectorAll('#hamburger-nav a'); // the nodelist of all anchor tags within
-  const desktopNavLinks = document.querySelectorAll('#nav a'); // the nodelist of all anchor tags within
+  const desktopNavLinks = document.querySelectorAll('#nav a'); // the nodelist of all anchor tags within nav of desktop V.
 
   /**If hamburger icon and container for links exist then add event listener to the hamburger icon */
   if (hamburger && navMenu) {

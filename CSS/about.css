@@ -11,15 +11,16 @@
 .zoom-in {
   animation: zoomIn 1s ease-out forwards;
 }
-
+/*----------------------------------------------------------------------------------------------------------*/
+ /*MOBILE VERSION*/
 @media  (max-width: 800px) {
-    /*Disabling desktop display*/
-    .desktop {
-        display: none;
-    }
-    .tablet {
-        display: none;
-    }
+  /*Disabling other displays*/
+  .desktop {
+      display: none;
+  }
+  .tablet {
+      display: none;
+  }
   .about-body {
       background-size: 100%;
       background-repeat: no-repeat;
@@ -34,10 +35,10 @@
       align-items: center;   
       height: 1000px;
   }
-
+  /*where main content is loaded*/
   .about-main {
       background: rgb(251,242,241);
-      margin: 24vh 0vw 4vh 0vw;   /* height of header */
+      margin: 24vh 0vw 4vh 0vw;   
       padding: 0vh 2vw 0vh 2vw;
       width: 100%;
       box-sizing: border-box;
@@ -69,19 +70,16 @@
   }
 }
 
-
-
-
-
+/*----------------------------------------------------------------------------------------------------------*/
 /*DESKTOP DISPLAY*/
 @media  (min-width: 1024px) {
-    /*Disabling mobile display*/
-    .mobile {
-        display: none;
-    }
-    .tablet {
-        display: none;
-    }
+  /*Disabling other displays*/
+  .mobile {
+      display: none;
+  }
+  .tablet {
+      display: none;
+  }
   .about-body {
     padding: 0;
     margin:0vw;
@@ -93,11 +91,12 @@
     height: 1000px;
   }
 
+  /*Where main content is loaded*/
   .about-main {
     display: flex;
     flex-direction: row;
     background: rgb(251,242,241);
-    margin: 0vh 0 0 0;   /* height of header */
+    margin: 0vh 0 0 0;   
     padding: 15vw 5vw 2vw 2vw;
     width: 100%;
     box-sizing: border-box;
@@ -107,6 +106,7 @@
     transform: translateY(20px);
     animation: fadeInUp 2s ease-out forwards;
   }
+  /*This div holds all the text in about.js*/
   #about-text-div {
     display:flex;
     flex-direction: column;
@@ -139,7 +139,10 @@
   }
 }
 
+/*----------------------------------------------------------------------------------------------------------*/
+/*TABLET VERSION*/
 @media  (min-width: 801px) and (max-width:1023px) {
+  /*Disabling other displays*/
   .desktop{
       display: none;
   }

@@ -4,7 +4,7 @@ Welcome to the official website project for **Mane Attraction Hair Design**, a p
 
 Designed and developed a custom single-page application (SPA) using raw HTML, CSS, and JavaScript. Managed all content dynamically through DOM manipulation with no frameworks, simulating multi-page navigation from a single HTML file.
 
-This site is designed to deliver a seamless and elegant user experience for mobile users, with a focus on showcasing services, bridal styling, and a modern gallery. Desktop and tablet versions are currently under construction.
+This site is designed to deliver a seamless and elegant user experience for mobile & desktop users, with a focus on showcasing services, bridal styling, and a modern gallery. Desktop and tablet versions are currently under construction.
 
 ---
 
@@ -16,8 +16,8 @@ This site is designed to deliver a seamless and elegant user experience for mobi
 ├── index.html # Main HTML file (mobile-focused layout)
 ├── JavaScript/
 │ ├── main.js # Main script that controls routing and page display
-│ ├── bridalv1.js # Bridal page dynamic content
-│ ├── serviceObjectsv1.js # Services content rendered via objects
+│ ├── bridal.js # Bridal page dynamic content
+│ ├── serviceObjects.js # Services content rendered via objects
 │ └── ... # Additional script modules
 ├── CSS/
 │ ├── index.css # Global styles
@@ -34,7 +34,7 @@ This site is designed to deliver a seamless and elegant user experience for mobi
 
 ## 📱 Features
 
-- 📱 **Mobile-first Design** — Tailored for mobile users with a clean hamburger menu
+- 📱 **Mobile & Desktop Design** — Tailored for mobile users with a clean hamburger menu and
 - 💇 **Bridal Styling Focus** — A dedicated bridal section showcasing experience and offerings
 - 🖼️ **Dynamic Gallery** — Gallery loaded via DOM manipulation using JavaScript
 - ⚡ **Preloader** — Loader shown until all content and images are fully ready
@@ -56,7 +56,7 @@ This site is designed to deliver a seamless and elegant user experience for mobi
 
 ## 🚧 Notes
 
-- ❗Desktop and tablet layouts are **placeholders** and will display a message indicating construction.
+- ❗tablet layout is currently under construction
 - Cached JS files may require query string versioning (`main.js?v=2`) to force updates.
 
 ---

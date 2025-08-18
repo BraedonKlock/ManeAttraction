@@ -14,9 +14,11 @@
     opacity: 1;
   }
 }
+
+/*----------------------------------------------------------------------------------------------------------*/
 /*MOBILE DISPLAY*/
 @media  (max-width: 800px) {
-  /*Disabling desktop display*/
+  /*Disabling other displays*/
   .desktop {
       display: none;
   }
@@ -38,17 +40,14 @@
       flex-direction: column;
       align-items: center;   
   }
-
   #business-container {
     padding: 2vh 0vw 0vw 0vw;
   }
-
   #business-container h2 {
     font-family: 'Imperial Script';
     margin: 0 0 1vh 0;
     justify-self: center;
   }
-
   #hours-div {
     display: flex;
     flex-direction: row;
@@ -63,12 +62,10 @@
   #closed {
     color: red;
   }
-
   #contact-hr {
       background-color: black;
       border-color: black;
   }
-
   #contact-us {
       text-align: center;
       font-family: sans-serif;
@@ -76,12 +73,10 @@
   }
 }
 
-
-
-
+/*----------------------------------------------------------------------------------------------------------*/
 /*DESKTOP DISPLAY*/
 @media  (min-width: 1024px) {
-  /*Disabling mobile display*/
+  /*Disabling other displays*/
   .mobile {
       display: none;
   }
@@ -102,17 +97,14 @@
       flex-direction: column;
       align-items: center;   
   }
-
   #business-container {
     padding: 2vh 0vw 0vw 0vw;
   }
-
   #business-container h2 {
     font-family: 'Imperial Script';
     margin: 0 0 1vh 0;
     justify-self: center;
   }
-
   #hours-div {
     display: flex;
     flex-direction: row;
@@ -124,12 +116,10 @@
     line-height: 1.7;
     font-family: sans-serif;
   }
-
   #contact-hr {
       background-color: black;
       border-color: black;
   }
-
   #contact-us {
       text-align: center;
       font-family: sans-serif;
@@ -138,14 +128,15 @@
   #map-container {
     padding: 0 5vw 0 5vw;
   }
-
   #closed {
     color: red;
   }
-
 }
 
+/*----------------------------------------------------------------------------------------------------------*/
+/*TABLET VERSION*/
 @media  (min-width: 801px) and (max-width:1023px) {
+  /*Disabling other displays*/
   .desktop{
       display: none;
   }

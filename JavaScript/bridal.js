@@ -4,6 +4,7 @@ import { checkFooterDisplay, checkMainId, showPreloader, hidePreloader, waitForA
  * I also has an array of images that i loop through to create image tags and display images
  */
 
+/**This function displays the bridal page content */
 export function bridalDisplay() {
   showPreloader();
   checkMainId();

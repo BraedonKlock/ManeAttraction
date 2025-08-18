@@ -41,10 +41,10 @@ export function homeDisplay() {
   aboutDiv.id="about-div";
   main.appendChild(aboutDiv);
 
-  const aboutButton = document.createElement("button"); // creating a button that will link to the bridal page
-  aboutButton.textContent = "More About Kendra"; // button says "Learn More"
+  const aboutButton = document.createElement("button"); // creating a button that will link to the ABOUT page
+  aboutButton.textContent = "More About Kendra"; // button says "More About Kendra"
   aboutButton.id = "about-kendra-btn"; // assigning id for css styling
-  // adding an event listener to the button that will execute a funtion that displays the bridal page
+  // adding an event listener to the button that will execute a funtion that displays the about page
   aboutButton.addEventListener("click", aboutDisplay);
   aboutDiv.appendChild(aboutButton); // adding the button to main
 
