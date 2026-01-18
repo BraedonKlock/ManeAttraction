@@ -1590,10 +1590,43 @@ button {
     /* Fix contact page horizontal scroll */
     .contact-section {
         padding: var(--spacing-lg) var(--spacing-sm);
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .contact-info-card {
         padding: var(--spacing-md);
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .contact-info-item {
+        flex-wrap: wrap;
+        max-width: 100%;
+    }
+
+    .contact-info-content {
+        max-width: 100%;
+        overflow: hidden;
+        min-width: 0;
+        flex: 1;
+    }
+
+    .contact-info-content p,
+    .contact-info-content a {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 100%;
+    }
+
+    .hours-grid {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .hours-time {
+        font-size: 0.85rem;
     }
 
     .contact-map {
