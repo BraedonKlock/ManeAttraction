@@ -1607,6 +1607,18 @@ button {
 
 /* Mobile specific fixes */
 @media (max-width: 767px) {
+    /* Service list - stack price, title, description vertically */
+    .service-list-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: var(--spacing-xs);
+    }
+
+    .service-list-price {
+        order: -1;
+    }
+
     /* Fix contact page horizontal scroll */
     .contact-section {
         padding: var(--spacing-lg) var(--spacing-sm);
