@@ -414,13 +414,6 @@ button {
     color: var(--color-rose);
 }
 
-.link-number {
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    color: var(--color-rose);
-    margin-right: var(--spacing-xs);
-}
-
 .mobile-book-btn {
     display: inline-block;
     margin-top: var(--spacing-lg);
@@ -1640,10 +1633,6 @@ button {
     .mobile-nav-link {
         font-size: 1.3rem;
         padding: 0.5rem 0;
-    }
-
-    .link-number {
-        display: none;
     }
 
     .mobile-book-btn {
