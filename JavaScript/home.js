@@ -3,6 +3,10 @@
  * Beautiful hero section with animations
  */
 
+import { initDyeBackground } from './dyeBackground.js';
+
+let dyeBackgroundInstance = null;
+
 export function homeDisplay() {
     const main = document.getElementById('main');
     main.innerHTML = '';
@@ -52,7 +56,7 @@ export function homeDisplay() {
         </section>
 
         <!-- Services Preview Section -->
-        <section class="section" style="background: var(--color-white);">
+        <section id="services-section" class="section dye-section">
             <div class="section-header reveal">
                 <span class="section-label">What We Offer</span>
                 <h2 class="section-title">Our Services</h2>
@@ -265,6 +269,12 @@ export function homeDisplay() {
 
     // Initialize bridal slider
     initBridalSlider();
+
+    // Initialize dye brush background
+    if (dyeBackgroundInstance) {
+        dyeBackgroundInstance.destroy();
+    }
+    dyeBackgroundInstance = initDyeBackground('services-section');
 }
 
 function addNavigationListeners() {
