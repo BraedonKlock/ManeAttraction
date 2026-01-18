@@ -151,9 +151,6 @@ export function contactDisplay() {
                 <div class="contact-map reveal-right">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2826.1382580326654!2d-76.02579102322066!3d44.90018317107037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccd88a55077edd1%3A0x7233914cdaae445d!2s10%20Maple%20Ave%2C%20Smiths%20Falls%2C%20ON%20K7A%201Z5!5e0!3m2!1sen!2sca!4v1754144278714!5m2!1sen!2sca"
-                        width="100%"
-                        height="100%"
-                        style="border:0; min-height: 500px;"
                         allowfullscreen=""
                         loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">

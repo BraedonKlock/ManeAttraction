@@ -40,16 +40,13 @@ export function homeDisplay() {
                 </div>
 
                 <div class="hero-image">
-                    <div class="hero-image-decoration"></div>
                     <div class="hero-image-wrapper">
                         <img src="./Photos/kendrahome.jpeg" alt="Kendra - Professional Hair Stylist">
                     </div>
-                    <div class="hero-image-decoration"></div>
                 </div>
             </div>
 
             <div class="hero-scroll-indicator">
-                <span>Scroll</span>
                 <div class="scroll-line"></div>
             </div>
         </section>
