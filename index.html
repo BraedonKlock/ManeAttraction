@@ -3,92 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Dealing with cache issues. JS file updates won't take effect-->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    
+
     <title>Mane Attraction Hair Design</title>
     <link rel="icon" href="./Photos/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./CSS/index.css?v=7.1.1">
-    <link rel="stylesheet" href="./CSS/home.css?v=7.1.1">
-    <link rel="stylesheet" href="./CSS/about.css?v=7.1.1">
-    <link rel="stylesheet" href="./CSS/services.css?v=7.1.1">
-    <link rel="stylesheet" href="./CSS/bridal.css?v=8.1.1">
-    <link rel="stylesheet" href="./CSS/gallery.css?v=7.1.1">
-    <link rel="stylesheet" href="./CSS/contact.css?v=7.1.1">
+
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="./CSS/modern.css?v=1.0.0">
 </head>
-<body class="body">
-  <!-- Preloader-->
-  <div id="preloader">
-    <div class="loader"></div>
-  </div>
+<body>
+    <!-- Elegant Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="./Photos/logoT.png" alt="Mane Attraction Logo">
+            </div>
+            <div class="preloader-spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Main site content (initially hidden) to just show preloader -->
-  <div id="site-content" style="display: none;">
+    <!-- Cursor follower for desktop -->
+    <div class="cursor-follower"></div>
 
-    <!--HEADER DESKTOP VERSION-->
-    <header class="desktop">
-        <div id="image"><img src="./Photos/logoT.png"></div>
-        <nav class="dektop" id="nav">
-          <a href="#">Home</a>
-          <a href="#">About</a>
-          <a href="#">Services</a>
-          <a href="#">Bridal</a>
-          <a href="#">Gallery</a>
-          <a href="#">Contact</a>
-        </nav>
-        <a href="https://www.vagaro.com/maneattractionhairdesign1" id="book-button">BOOK NOW</a>
-    </header>
+    <!-- Main site content -->
+    <div id="site-content">
+        <!-- Modern Glass Header -->
+        <header id="header">
+            <div class="header-container">
+                <a href="#" class="logo" data-page="Home">
+                    <img src="./Photos/logoT.png" alt="Mane Attraction Hair Design">
+                </a>
 
-    <!--HEADER MOBILE VERSION-->
-    <header class="mobile">
-        <nav>
-            <div class="hamburger" id="hamburger"><p>☰</p></div>
-            <div id="image"><img src="./Photos/logoT.png"></div>
-            <a href="https://www.vagaro.com/maneattractionhairdesign1" id="book-button">BOOK NOW</a>
-          </nav>
-          <div class="mobile" id="hamburger-nav">
-            <a href="#">Home<hr class="hamburger-line"></a>
-            <a href="#">About<hr class="hamburger-line"></a>
-            <a href="#">Services<hr class="hamburger-line"></a>
-            <a href="#">Bridal<hr class="hamburger-line"></a>
-            <a href="#">Gallery<hr class="hamburger-line"></a>
-            <a href="#">Contact</a>
-          </div>
+                <!-- Desktop Navigation -->
+                <nav class="desktop-nav">
+                    <a href="#" data-page="Home" class="nav-link">
+                        <span class="nav-text">Home</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                    <a href="#" data-page="About" class="nav-link">
+                        <span class="nav-text">About</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                    <a href="#" data-page="Services" class="nav-link">
+                        <span class="nav-text">Services</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                    <a href="#" data-page="Bridal" class="nav-link">
+                        <span class="nav-text">Bridal</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                    <a href="#" data-page="Gallery" class="nav-link">
+                        <span class="nav-text">Gallery</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                    <a href="#" data-page="Contact" class="nav-link">
+                        <span class="nav-text">Contact</span>
+                        <span class="nav-underline"></span>
+                    </a>
+                </nav>
+
+                <!-- Book Now Button -->
+                <a href="https://www.vagaro.com/maneattractionhairdesign1" class="book-btn" target="_blank">
+                    <span class="btn-text">Book Now</span>
+                    <span class="btn-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </span>
+                </a>
+
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <a href="#" data-page="Home" class="mobile-nav-link">
+                        <span class="link-number">01</span>
+                        <span class="link-text">Home</span>
+                    </a>
+                    <a href="#" data-page="About" class="mobile-nav-link">
+                        <span class="link-number">02</span>
+                        <span class="link-text">About</span>
+                    </a>
+                    <a href="#" data-page="Services" class="mobile-nav-link">
+                        <span class="link-number">03</span>
+                        <span class="link-text">Services</span>
+                    </a>
+                    <a href="#" data-page="Bridal" class="mobile-nav-link">
+                        <span class="link-number">04</span>
+                        <span class="link-text">Bridal</span>
+                    </a>
+                    <a href="#" data-page="Gallery" class="mobile-nav-link">
+                        <span class="link-number">05</span>
+                        <span class="link-text">Gallery</span>
+                    </a>
+                    <a href="#" data-page="Contact" class="mobile-nav-link">
+                        <span class="link-number">06</span>
+                        <span class="link-text">Contact</span>
+                    </a>
+                    <a href="https://www.vagaro.com/maneattractionhairdesign1" class="mobile-book-btn" target="_blank">
+                        Book Your Appointment
+                    </a>
+                </div>
+            </nav>
         </header>
-        
-        <!--This is where all the content/elements of each page is created in both desktop and mobile-->
-        <main id="main"></main>
-        
-        <!--FOOTER MOBILE & DESKTOP-->
-        <footer>
-          <div id="footer-container">
-            <div id="footer-contact">
-              <p>Kendra Roney</p>
-              <p>613-326-1649</p>
-              <p>10 Maple Avenue, Unit 6<br>
-                 Smiths Falls</p>
+
+        <!-- Page Transition Overlay -->
+        <div class="page-transition">
+            <div class="transition-slide"></div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="main">
+            <!-- Page content injected here -->
+        </main>
+
+        <!-- Modern Footer -->
+        <footer id="footer">
+            <div class="footer-wave">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+                </svg>
             </div>
-            <div id="sm-links">
-                <p>Connect with us:</p>
-                <a href="https://www.facebook.com/share/1CKPXq4F6a/"><img src="./Photos/fbLogo.jpg" id="fb-logo"></a>
-                <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211"><img src="./Photos/InstagramLogo.png" id="inst-logo"></a>
+            <div class="footer-content">
+                <div class="footer-section footer-brand">
+                    <img src="./Photos/logoT.png" alt="Mane Attraction" class="footer-logo">
+                    <p class="footer-tagline">Where beauty meets artistry</p>
+                </div>
+
+                <div class="footer-section footer-contact">
+                    <h4>Get in Touch</h4>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <span>613-326-1649</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>ManeAttractionHairDesign@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>10 Maple Avenue, Unit 6<br>Smiths Falls, ON</span>
+                    </div>
+                </div>
+
+                <div class="footer-section footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/1CKPXq4F6a/" class="social-link" target="_blank" aria-label="Facebook">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com/maneattractionhairdesign?igsh=dWJod2VucXlkZ211" class="social-link" target="_blank" aria-label="Instagram">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
-          </div>
-            <p>© 2025 Mane Attraction Hair Design. All rights reserved.</p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mane Attraction Hair Design. All rights reserved.</p>
+                <p class="footer-credit">Crafted with <span class="heart">&hearts;</span> for Kendra</p>
+            </div>
         </footer>
+    </div>
 
-  <!--Driver file that handles menu option selected - added a qury string to bust up cache on bluehost-->
-  <script type="module" src="./JavaScript/main.js?v=7.1.1"></script>
-
-  <script>
-    /*Event listener waits for everything to load and then tuns off the preloader display and shows the web content*/
-    window.addEventListener("load", () => {
-      document.getElementById("preloader").style.display = "none";
-      document.getElementById("site-content").style.display = "block"; // reapplying style so content is shown
-    });
-  </script>
-
+    <!-- JavaScript -->
+    <script type="module" src="./JavaScript/main.js?v=2.0.0"></script>
 </body>
 </html>

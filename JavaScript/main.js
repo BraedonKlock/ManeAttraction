@@ -1,119 +1,253 @@
-import { homeDisplay } from './home.js?v=7.1.1'; // function displays home page
-import { aboutDisplay } from './about.js?v=7.1.1'; // function displays about page
-import { servicesDisplay } from './services.js?v=7.1.1'; // function ddisplays the services page
-import { bridalDisplay } from './bridal.js?v=7.1.1'; // function displays the bridal page
-import { galleryDisplay } from './gallery.js?v=7.1.1';// function displays galllery page
-import { contactDisplay } from './contact.js?v=7.1.1'; // function displays the contact page
-
 /**
- * This file handles the menu and calls the functions corresponding to the menu options
- * upon initial load it looks for a saved page in local storage. if non exist it goes to home.
- * event listeners are attached to the hamburger menu, anchor tags page load, click and scroll
- * if the user opens the menu and clicks an option (page) that page is saved to localstorage as a string with an expiration date and then the function that manipulates the dom runs and inserts elements in the "main" tag.
- * if the user refreshes the page the event listener for load will perform a function that scrolls the page to the top get the saved page check the expiration and will display the same page the user is on if it hasnt expired. if expired it displays home.
- * event listener for scroll and click outside hamburger menu collapses hamburger menu
+ * MANE ATTRACTION - Modern Main JavaScript
+ * Handles routing, page transitions, and global interactions
  */
 
-homeDisplay(); // Default to home when page is firt loaded
+import { homeDisplay } from './home.js?v=2.0.0';
+import { aboutDisplay } from './about.js?v=2.0.0';
+import { servicesDisplay } from './services.js?v=2.0.0';
+import { bridalDisplay } from './bridal.js?v=2.0.0';
+import { galleryDisplay } from './gallery.js?v=2.0.0';
+import { contactDisplay } from './contact.js?v=2.0.0';
+import { initScrollAnimations, initCursorFollower, initHeaderScroll } from './helper.js?v=2.0.0';
 
-/**Event listener for page refresh, and function that checks expiration time to determin what to display*/
-window.addEventListener('load', () => {
-  window.scrollTo({ top: 0, behavior: "auto" });
+// ==========================================================================
+// INITIALIZATION
+// ==========================================================================
 
-  /** Load and check saved page from localStorage */
-  const saved = localStorage.getItem('lastPage');
-
-  /**Converting string to an object because javascript understands objects and pulls out the values of the key */
-  const { page, expiresAt } = JSON.parse(saved); 
-  /**Only runs if a page was saved */
-  if (saved) {
-    const now = new Date().getTime(); // gets the current time 
-
-    /**Compares current time to page expiration time . if page hasnt expired we display the saved page, if expired we go to home page*/
-    if (now < expiresAt) {
-      if (page === "About") aboutDisplay();
-      else if (page === "Services") servicesDisplay();
-      else if (page === "Bridal") bridalDisplay();
-      else if (page === "Gallery") galleryDisplay();
-      else if (page === "Contact") contactDisplay();
-      else homeDisplay(); // fallback
-      return;
-    } else {
-      localStorage.removeItem('lastPage'); // Remove expired entry
-    }
-  }
-
-  homeDisplay(); // Default to home if nothing is stored or expired
+document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
+    initNavigation();
+    initHeaderScroll();
+    initCursorFollower();
+    loadSavedPage();
 });
 
-/**event listener for hamburger menu and its options*/
-/**adding event listener to hamburger menu to make sure everything is loaded before running code inside the function to prevent accessing elements before they exist */
-document.addEventListener('DOMContentLoaded', function () { 
-  const hamburger = document.getElementById('hamburger'); // the icon/button that the user clicks
-  const navMenu = document.getElementById('hamburger-nav'); // the container holding the links
-  const navLinks = document.querySelectorAll('#hamburger-nav a'); // the nodelist of all anchor tags within
-  const desktopNavLinks = document.querySelectorAll('#nav a'); // the nodelist of all anchor tags within nav of desktop V.
+// ==========================================================================
+// PRELOADER
+// ==========================================================================
 
-  /**If hamburger icon and container for links exist then add event listener to the hamburger icon */
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', function () { // event listener for click
-      navMenu.classList.toggle('active'); // displays menu
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+
+    // Wait for all images to load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            preloader.classList.add('hidden');
+            document.getElementById('site-content').style.opacity = '1';
+        }, 500);
     });
-  }
 
-  /**Looping through navLink nodelist and applying event listener to anchor tags */
-  for (let i = 0; i < navLinks.length; i++) {
-    navLinks[i].addEventListener('click', handleNavClick);
-    desktopNavLinks[i].addEventListener('click', handleNavClick);
-  }
-});
-
-/**Event listener that collapses hamburger menu when the user clicks outside the menu */
-document.addEventListener('click', function (event) {
-  const hamburger = document.getElementById('hamburger'); // get hamburger icon
-  const navMenu = document.getElementById('hamburger-nav'); // get container for links
-
-  const clickedInsideHamburger = hamburger.contains(event.target); // if hamburger is clicked returns true
-  const clickedInsideMenu = navMenu.contains(event.target); // if link container is clicked return true
-
-  // If clicked outside both hamburger and container for links the collapse menu
-  if (!clickedInsideHamburger && !clickedInsideMenu) {
-    navMenu.classList.remove('active'); // collapse hamburger menu
-  }
-});
-
-/**Event listener that collapses hamburger menu if the user scrolls */
-window.addEventListener('scroll', function () {
-  const navMenu = document.getElementById('hamburger-nav');
-  if (navMenu.classList.contains('active')) {
-    navMenu.classList.remove('active');
-  }
-});
-
-/**This function runs when the event listener is triggered by the user selecting a menu option. This function saves the page to local storage and displays the page selected | passing in event object*/
-function handleNavClick(e) {
-  e.preventDefault(); // prevents anchor tag from running
-
-  const page = this.textContent.trim(); // trims the text content inside the element to prevent error
-
-  /** Save selected page with an expiration time */
-  const expirationMinutes = 3; // expiration in minutes
-  /**This sets the expiration time of the saved page by adding current time (milliseconds) to the expiration time(converting to milliseconds) */
-  const expiresAt = new Date().getTime() + expirationMinutes * 60 * 1000;
-
-  /**sets the key "last page" in local storage with the values "page name" and "expiration time." this must be converted to a string because the browser doesnt understand objects */
-  localStorage.setItem('lastPage', JSON.stringify({ page, expiresAt }));
-
-  const main = document.getElementById('main'); // getting main to clear previous content because that's where we are placing page content
-  main.innerHTML = ''; // clearing main 
-
-  if (page === "Home") homeDisplay();
-  else if (page === "About") aboutDisplay();
-  else if (page === "Services") servicesDisplay();
-  else if (page === "Bridal") bridalDisplay();
-  else if (page === "Gallery") galleryDisplay();
-  else if (page === "Contact") contactDisplay();
-  else alert("ERROR");
-
-  document.getElementById('hamburger-nav').classList.remove('active'); // collapsing hamburger menu
+    // Fallback: hide preloader after 3 seconds regardless
+    setTimeout(() => {
+        preloader.classList.add('hidden');
+        document.getElementById('site-content').style.opacity = '1';
+    }, 3000);
 }
+
+// ==========================================================================
+// NAVIGATION
+// ==========================================================================
+
+function initNavigation() {
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const desktopNavLinks = document.querySelectorAll('.desktop-nav .nav-link');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const logo = document.querySelector('.logo');
+
+    // Mobile menu toggle
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+    }
+
+    // Desktop navigation clicks
+    desktopNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.dataset.page;
+            navigateToPage(page);
+            updateActiveLink(page);
+        });
+    });
+
+    // Mobile navigation clicks
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.dataset.page;
+
+            // Close mobile menu
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+
+            // Navigate after menu animation
+            setTimeout(() => {
+                navigateToPage(page);
+                updateActiveLink(page);
+            }, 300);
+        });
+    });
+
+    // Logo click goes home
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+            e.preventDefault();
+            navigateToPage('Home');
+            updateActiveLink('Home');
+        });
+    }
+
+    // Close mobile menu on scroll
+    window.addEventListener('scroll', () => {
+        if (mobileNav.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (mobileNav.classList.contains('active') &&
+            !mobileNav.contains(e.target) &&
+            !menuToggle.contains(e.target)) {
+            menuToggle.classList.remove('active');
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+}
+
+function updateActiveLink(page) {
+    // Update desktop nav
+    document.querySelectorAll('.desktop-nav .nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.page === page);
+    });
+
+    // Update mobile nav
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.page === page);
+    });
+}
+
+// ==========================================================================
+// PAGE TRANSITIONS & ROUTING
+// ==========================================================================
+
+function navigateToPage(page, skipTransition = false) {
+    const pageTransition = document.querySelector('.page-transition');
+    const main = document.getElementById('main');
+
+    // Save to localStorage
+    savePage(page);
+
+    if (skipTransition) {
+        // Direct display without transition
+        displayPage(page);
+        return;
+    }
+
+    // Trigger page transition
+    pageTransition.classList.add('active');
+
+    setTimeout(() => {
+        // Clear main content
+        main.innerHTML = '';
+        main.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'auto' });
+
+        // Display new page
+        displayPage(page);
+
+        // Exit transition
+        setTimeout(() => {
+            pageTransition.classList.remove('active');
+            pageTransition.classList.add('exit');
+
+            setTimeout(() => {
+                pageTransition.classList.remove('exit');
+            }, 600);
+        }, 100);
+    }, 600);
+}
+
+function displayPage(page) {
+    // Show footer by default
+    const footer = document.getElementById('footer');
+    if (footer) footer.style.display = 'block';
+
+    switch (page) {
+        case 'Home':
+            homeDisplay();
+            break;
+        case 'About':
+            aboutDisplay();
+            break;
+        case 'Services':
+            servicesDisplay();
+            break;
+        case 'Bridal':
+            bridalDisplay();
+            break;
+        case 'Gallery':
+            galleryDisplay();
+            break;
+        case 'Contact':
+            contactDisplay();
+            break;
+        default:
+            homeDisplay();
+    }
+
+    // Initialize scroll animations for new content
+    setTimeout(() => {
+        initScrollAnimations();
+    }, 100);
+}
+
+// ==========================================================================
+// LOCAL STORAGE
+// ==========================================================================
+
+function savePage(page) {
+    const expirationMinutes = 5;
+    const expiresAt = new Date().getTime() + expirationMinutes * 60 * 1000;
+    localStorage.setItem('lastPage', JSON.stringify({ page, expiresAt }));
+}
+
+function loadSavedPage() {
+    try {
+        const saved = localStorage.getItem('lastPage');
+
+        if (saved) {
+            const { page, expiresAt } = JSON.parse(saved);
+            const now = new Date().getTime();
+
+            if (now < expiresAt) {
+                navigateToPage(page, true);
+                updateActiveLink(page);
+                return;
+            } else {
+                localStorage.removeItem('lastPage');
+            }
+        }
+    } catch (e) {
+        console.log('No saved page found');
+    }
+
+    // Default to home
+    navigateToPage('Home', true);
+    updateActiveLink('Home');
+}
+
+// ==========================================================================
+// EXPORT FOR MODULES
+// ==========================================================================
+
+export { navigateToPage, initScrollAnimations };

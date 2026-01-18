@@ -1,107 +1,365 @@
 /**
- * This file stores helper functions to make code cleaner
+ * MANE ATTRACTION - Helper Utilities
+ * Animation helpers, scroll effects, and utility functions
  */
 
-/**This function displays footer if contact page was visited and the footer display was set to none */
-export function checkFooterDisplay() {
-    const footer = document.querySelector('footer');
+// ==========================================================================
+// SCROLL ANIMATIONS (Intersection Observer)
+// ==========================================================================
 
-    if (footer.style.display === 'none') {
-        footer.style.display = 'flex';
+export function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all reveal elements
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .stagger-children');
+    revealElements.forEach(el => observer.observe(el));
+
+    // Observe gallery items for staggered animation
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    galleryItems.forEach((item, index) => {
+        item.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(item);
+    });
+}
+
+// ==========================================================================
+// CURSOR FOLLOWER (Desktop only)
+// ==========================================================================
+
+export function initCursorFollower() {
+    const cursor = document.querySelector('.cursor-follower');
+    if (!cursor) return;
+
+    // Only on devices with fine pointer (mouse)
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        cursor.style.display = 'none';
+        return;
     }
-}
 
-/**This function checks if "about-main" css styling is applied and removes it if so */
-export function checkMainId() {
-    const main = document.getElementById('main');
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
 
-    if (main.classList.contains('about-main')) {
-        main.classList.remove("about-main");
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    // Smooth follow animation
+    function animateCursor() {
+        const dx = mouseX - cursorX;
+        const dy = mouseY - cursorY;
+
+        cursorX += dx * 0.15;
+        cursorY += dy * 0.15;
+
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+
+        requestAnimationFrame(animateCursor);
     }
+    animateCursor();
+
+    // Hover effects on interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .service-card, .gallery-item, .card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+    });
 }
 
-/**This function checks if "bridal-main" css styling is applied to main and removes it if so */
-export function removeBridal() {
-    const main = document.getElementById('main');
+// ==========================================================================
+// HEADER SCROLL BEHAVIOR
+// ==========================================================================
 
-    if (main.classList.contains('bridal-main')) {
-        main.classList.remove("bridal-main");
-    }
+export function initHeaderScroll() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    let lastScroll = 0;
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const currentScroll = window.pageYOffset;
+
+                // Add scrolled class for shadow
+                if (currentScroll > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                // Hide/show header on scroll direction
+                if (currentScroll > lastScroll && currentScroll > 200) {
+                    header.classList.add('hidden');
+                } else {
+                    header.classList.remove('hidden');
+                }
+
+                lastScroll = currentScroll;
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    });
 }
 
-/**Pre-loader helper function to improve smoothness of website loading*/
-export function showPreloader() {
-  const preloader = document.getElementById("preloader");
-  const content = document.getElementById("site-content");
+// ==========================================================================
+// IMAGE LAZY LOADING
+// ==========================================================================
 
-  if (preloader && content) {
-    preloader.style.display = "flex";
-    content.style.display = "none";
-  }
+export function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.add('loaded');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
 }
 
-/**This function hides the preloader when done */
-export function hidePreloader() {
-  const preloader = document.getElementById("preloader");
-  const content = document.getElementById("site-content");
+// ==========================================================================
+// SMOOTH SCROLL TO ELEMENT
+// ==========================================================================
 
-  if (preloader && content) {
-    preloader.style.display = "none";
-    content.style.display = "block";
-  }
+export function smoothScrollTo(element, offset = 100) {
+    const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - offset;
+
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
 }
 
-/** 
- * Loads all <img> and CSS background images on the page 
- * before calling the provided callback function. 
- */
+// ==========================================================================
+// WAIT FOR ALL IMAGES
+// ==========================================================================
+
 export function waitForAllImages(callback) {
-  const imgElements = document.body.querySelectorAll('img'); // Find all <img> elements on the page
-  // Find all elements that use a CSS background-image
-  const bgElements = Array.from(document.querySelectorAll('*')).filter(el => { 
-    // Get the computed background-image style for each element
-    const bg = window.getComputedStyle(el).getPropertyValue('background-image');
-    return bg && bg !== 'none'; // Keep only those elements where background-image is set (not "none")
-  });
+    const images = document.querySelectorAll('img');
+    let loadedCount = 0;
+    const totalImages = images.length;
 
-  // Total number of images we need to wait for (both <img> and background images)
-  let total = imgElements.length + bgElements.length;
-  if (total === 0) { //   // If there are no images at all, run callback immediately
-    callback();
-    return;
-  }
-
-  // Counter for how many images have finished loading (success OR error)
-  let loaded = 0;
-
-  // Helper function to increment the counter and check if we're done
-  const checkDone = () => {
-    loaded++;
-    if (loaded === total) callback(); // When the number of loaded images equals the total, trigger callback
-  };
-
-  // Handle regular <img> elements
-  imgElements.forEach((img) => {
-    if (img.complete) { // If the image is already cached and loaded
-      checkDone();
-    } else { // Otherwise, wait for it to either load or fail
-      img.addEventListener('load', checkDone);
-      img.addEventListener('error', checkDone);
+    if (totalImages === 0) {
+        callback();
+        return;
     }
-  });
 
-  // Handle CSS background images
-  bgElements.forEach((el) => {
-    // Use regex to extract the actual URL from the CSS background-image property
-    const urlMatch = window.getComputedStyle(el).getPropertyValue('background-image').match(/url\(["']?([^"')]+)["']?\)/);
-    if (urlMatch && urlMatch[1]) {
-      const bgImg = new Image();
-      bgImg.src = urlMatch[1]; // Start loading the background image
-      bgImg.onload = checkDone; // Count as loaded when it finishes
-      bgImg.onerror = checkDone; // Also count if it fails to load
-    } else {
-      // If there's no valid URL (e.g. gradient backgrounds), count it as done
-      checkDone(); // If it can't find a URL, count it as done
+    function imageLoaded() {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+            callback();
+        }
     }
-  });
+
+    images.forEach(img => {
+        if (img.complete) {
+            imageLoaded();
+        } else {
+            img.addEventListener('load', imageLoaded);
+            img.addEventListener('error', imageLoaded);
+        }
+    });
+}
+
+// ==========================================================================
+// FOOTER VISIBILITY
+// ==========================================================================
+
+export function showFooter() {
+    const footer = document.getElementById('footer');
+    if (footer) footer.style.display = 'block';
+}
+
+export function hideFooter() {
+    const footer = document.getElementById('footer');
+    if (footer) footer.style.display = 'none';
+}
+
+// Legacy compatibility functions
+export function checkFooterDisplay() {
+    showFooter();
+}
+
+export function checkMainId() {
+    // No longer needed with modern approach
+}
+
+export function removeBridal() {
+    // No longer needed with modern approach
+}
+
+export function showPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) preloader.classList.remove('hidden');
+}
+
+export function hidePreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) preloader.classList.add('hidden');
+}
+
+// ==========================================================================
+// PARALLAX EFFECT
+// ==========================================================================
+
+export function initParallax() {
+    const parallaxElements = document.querySelectorAll('.parallax-image');
+
+    if (parallaxElements.length === 0) return;
+
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+
+        parallaxElements.forEach(el => {
+            const speed = el.dataset.speed || 0.5;
+            el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
+    });
+}
+
+// ==========================================================================
+// LIGHTBOX
+// ==========================================================================
+
+export function initLightbox() {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    let lightbox = document.querySelector('.lightbox');
+
+    // Create lightbox if it doesn't exist
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.className = 'lightbox';
+        lightbox.innerHTML = `
+            <span class="lightbox-close">&times;</span>
+            <div class="lightbox-content">
+                <img src="" alt="Gallery Image">
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+
+        // Close lightbox handlers
+        lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    }
+
+    const lightboxImg = lightbox.querySelector('.lightbox-content img');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            if (img) {
+                lightboxImg.src = img.src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+}
+
+// ==========================================================================
+// TEXT SPLIT ANIMATION
+// ==========================================================================
+
+export function splitText(element) {
+    const text = element.textContent;
+    element.innerHTML = '';
+
+    text.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.textContent = char === ' ' ? '\u00A0' : char;
+        span.style.animationDelay = `${index * 0.03}s`;
+        span.className = 'char';
+        element.appendChild(span);
+    });
+}
+
+// ==========================================================================
+// COUNTER ANIMATION
+// ==========================================================================
+
+export function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+
+        // Ease out cubic
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(easeProgress * target);
+
+        element.textContent = current;
+
+        if (progress < 1) {
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+
+    requestAnimationFrame(updateCounter);
+}
+
+// ==========================================================================
+// DEBOUNCE & THROTTLE UTILITIES
+// ==========================================================================
+
+export function debounce(func, wait = 100) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+export function throttle(func, limit = 100) {
+    let inThrottle;
+    return function executedFunction(...args) {
+        if (!inThrottle) {
+            func(...args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
 }
