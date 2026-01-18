@@ -13,7 +13,7 @@ const services = {
             { name: "Men's Haircut", description: "A customized haircut designed by your stylist to fit your individual style and preferences. This includes clipper cut, fade and finish.", price: "$36.00" },
             { name: "Women's Wash & Blow-Dry", description: "Professional styling and finishing service using a blow dryer and professional styling brush.", price: "$45.00" },
             { name: "Deva Curl Specialty Haircut", description: "Specifically designed for extreme curl hair types.", price: "$60.00" },
-            { name: "Special Occasions / Up-Dos", description: "An elegant style where the hair is pulled up, customized to your needs using top of the line service.", price: "$100.00" },
+            { name: "Special Occasions / Up-Dos", description: "An elegant style where the hair is pulled up, customized to your needs using top of the line service.", price: "$105.00" },
             { name: "Hair/Makeup Special Event", description: "Complete hair and makeup styling for your special occasion.", price: "$130.00" },
             { name: "Extension Installation", description: "Including tape in, integrated, micro weft or sew in.", price: "$130.00" },
             { name: "Women's Styling with Hot Iron", description: "Professional styling and finishing service using a flat or curling iron.", price: "$40.00" }
