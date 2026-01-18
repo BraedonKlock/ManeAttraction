@@ -9,6 +9,11 @@ export function galleryDisplay() {
     const main = document.getElementById('main');
     main.innerHTML = '';
 
+    // Scroll to top
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     main.innerHTML = `
         <!-- Gallery Hero -->
         <section class="hero" style="min-height: 50vh;">

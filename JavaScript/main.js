@@ -178,6 +178,11 @@ function navigateToPage(page, skipTransition = false) {
 }
 
 function displayPage(page) {
+    // Scroll to top
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     // Show footer by default
     const footer = document.getElementById('footer');
     if (footer) footer.style.display = 'block';
