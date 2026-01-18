@@ -10,9 +10,13 @@ export function galleryDisplay() {
     main.innerHTML = '';
 
     // Scroll to top
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    // Ensure scroll happens after DOM update
+    setTimeout(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }, 0);
 
     main.innerHTML = `
         <!-- Gallery Hero -->
